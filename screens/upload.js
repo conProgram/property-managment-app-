@@ -30,7 +30,7 @@ export default class upload extends React.Component {
             const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
             if (status != "granted") {
-                alert("We need permission to your photos to be able to PostIT");
+                alert("We need permission to your photos to be able to access your photos");
             }
         }
     };

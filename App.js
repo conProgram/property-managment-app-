@@ -8,11 +8,12 @@ import LoadingScreen from "./screens/LoadingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 
-import HomeScreen from "./screens/HomeScreen";
+import recommendations from "./screens/recommendations";
 import fireChat from "./screens/fireChat";
 import upload from "./screens/upload";
 import notifications from "./screens/notifications";
 import profilePage from "./screens/profilePage";
+import controls from "./screens/controls";
 
 
 const AppContainer = createStackNavigator(
@@ -20,8 +21,8 @@ const AppContainer = createStackNavigator(
 
     default: createBottomTabNavigator(
         {
-            Home: {
-                screen: HomeScreen,
+            recommendations: {
+                screen: recommendations,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home" size={24} color={tintColor} />
                 }
@@ -32,8 +33,8 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-chatboxes" size={24} color={tintColor} />
                 }
             },
-            upload: {
-                screen: upload,
+            controls: {
+                screen: controls,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => (
                         <Ionicons

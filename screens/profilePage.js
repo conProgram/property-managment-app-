@@ -52,7 +52,7 @@ export default class profilePage extends React.Component {
                     
                     
                 </View>
-                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome {this.state.displayName}!</Text>
+                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.displayName}  </Text>
                 
                 <Button
                     onPress={() => {

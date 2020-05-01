@@ -1,6 +1,5 @@
 import React from "react";
 import { Platform, KeyboardAvoidingView, SafeAreaView } from "react-native";
-
 import Fire from "../Fire";
 
 export default class fireChat extends React.Component {

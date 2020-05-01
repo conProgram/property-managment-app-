@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 
 export default class LoginScreen extends React.Component {
     static navigationOptions = {
-        header: null
+        headerShown: false
     };
     
     state = {
@@ -27,10 +27,10 @@ export default class LoginScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <ImageBackground source={require("../assets/Profile.png")} style={{width: '100%', height: '100%'}} >  
+                <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
                 <StatusBar barStyle="light-content"></StatusBar>
                 
-                <Text style={styles.greeting}>{`Welcome to\n`}<Text style={{ fontWeight: "900", color: "#72249c" }}>POST It</Text>
+                <Text style={styles.greeting}>{`Welcome to\n`}<Text style={{ fontWeight: "900", color: "#d48e15" }}>VillaMate</Text>
                 
                 </Text>
 

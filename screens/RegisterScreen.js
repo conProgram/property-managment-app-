@@ -7,7 +7,7 @@ import Fire from "../Fire";
 
 export default class RegisterScreen extends React.Component {
     static navigationOptions = {
-        header: null
+        headerShown: false
     };
 
     state = {
@@ -42,7 +42,7 @@ export default class RegisterScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <ImageBackground source={require("../assets/Register.png")} style={{width: '100%', height: '100%'}} >  
+                <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
 
                 <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handlePickAvatar}>
                         <Image source={{ uri: this.state.user.avatar }} style={styles.avatar} />
@@ -56,7 +56,7 @@ export default class RegisterScreen extends React.Component {
                
                 
                 <StatusBar barStyle="light-content"></StatusBar>
-                <Text style={styles.greeting}>{`ADD A PROFILE PHOTO HERE\n`}<Text style={{ fontWeight: "900", color: "#72249c" }}>POST It</Text></Text>
+                <Text style={styles.greeting}>{`ADD A Photo of your Villa here\n`}<Text style={{ fontWeight: "900", color: "#d48e15" }}>Enter your details</Text></Text>
                 
                 
 
@@ -71,9 +71,12 @@ export default class RegisterScreen extends React.Component {
 
                 <View style={styles.form}>
                     <View>
-                        <Text style={styles.inputTitle}>Full Name</Text>
+                        <Text style={styles.inputTitle}> Enter name of property </Text>
                         <TextInput
+                            
                             style={styles.input}
+                            placeholderTextColor = "#d48e15"
+                            placeholder = "For example Stunning Waterfront Villa"
                             onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
                             value={this.state.user.name}
                         ></TextInput>
@@ -144,10 +147,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: StyleSheet.hairlineWidth,
         height: 40,
         fontSize: 15,
-        color: "#07f00b"
+        color: "#d48e15"
+       
     },
     button: {
-        backgroundColor: '#72249c',
+        backgroundColor: '#d48e15',
         height: 70,
         marginHorizontal: 20,
         borderRadius: 35,
