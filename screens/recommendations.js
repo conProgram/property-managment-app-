@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, FlatList, ImageBackground, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, ImageBackground, ActivityIndicator, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import moment from "moment";
 import firebase from "firebase";
@@ -19,7 +19,7 @@ import Fire from "../Fire";
 // ];
 
 
-export default class HomeScreen extends React.Component {
+export default class recommendations extends React.Component {
 
     state = {
         posts: []
@@ -75,9 +75,19 @@ export default class HomeScreen extends React.Component {
             <View style={styles.container}>
                 
                 <View style={styles.header}>
-                    <Text style={styles.headerTitle}>PostIT</Text>
+                    <Text style={styles.headerTitle}>Recommendations</Text>
+                    
+                    <TouchableOpacity
+                    style={{ alignSelf: "center", marginTop: 32 }}
+                    onPress={() => this.props.navigation.navigate("upload")}
+                >
+                    <Text style={{ color: "#ffffff", fontSize: 15, fontWeight: "800" }}>
+                        Want to add a recommendation ?<Text style={{ fontWeight: "900", color: "#d48e15" }}>Add here</Text>
+                    </Text>
+                </TouchableOpacity>
+
                 </View>
-                <ImageBackground source={require("../assets/Profile.png")} style={{width: '100%', height: '100%'}} > 
+                <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} > 
                 <FlatList
                 
                     style={styles.feed}
@@ -123,6 +133,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "500",
         color: "#fff"
+        
     },
     feed: {
         marginHorizontal: 16
