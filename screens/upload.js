@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image, ImageBackground, KeyboardAvoidingView } from "react-native";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { Ionicons } from "@expo/vector-icons";
@@ -80,7 +80,7 @@ export default class upload extends React.Component {
                     <Image source={require("../assets/lez.jpg")} style={styles.avatar}></Image>
                     {/* <Image source={this.state.user.avatar ? { uri: this.state.user.avatar } : require("")} style={styles.avatar} </Image> */}
                     <TextInput
-                        autoFocus={true}
+                        
                         multiline={true}
                         numberOfLines={4}
                         style={styles.inputContainer}

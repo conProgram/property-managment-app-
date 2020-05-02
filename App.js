@@ -24,13 +24,13 @@ const AppContainer = createStackNavigator(
             recommendations: {
                 screen: recommendations,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-book" size={24} color={tintColor} />
                 }
             },
-            fireChat: {
-                screen: fireChat,
+            upload: {
+                screen: upload,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-chatboxes" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
                 }
             },
             controls: {
@@ -38,8 +38,8 @@ const AppContainer = createStackNavigator(
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => (
                         <Ionicons
-                            name="ios-planet"
-                            size={48}
+                            name="ios-home"
+                            size={35}
                             color={tintColor}
                             style={{
                                 shadowColor: "#72249c",
@@ -54,13 +54,13 @@ const AppContainer = createStackNavigator(
             notifications: {
                 screen: notifications,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-options" size={24} color={tintColor} />
                 }
             },
             profilePage: {
                 screen: profilePage,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-person" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-sunny" size={30} color={tintColor} />
                 }
             }
         },

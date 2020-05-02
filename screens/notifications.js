@@ -22,7 +22,7 @@ export default class notifications extends React.Component {
         <ImageBackground source={require("../assets/Notifications_.png")} style={styles.backgroundImage} >
        
             <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800" }}> All notifications for: {this.state.email}!</Text>
-
+            
             
             </ImageBackground>
         </View>

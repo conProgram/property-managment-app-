@@ -5,6 +5,7 @@ import moment from "moment";
 import firebase from "firebase";
 import Fire from "../Fire";
 
+
 // temporary data until we pull from Firebase
 // posts = [
 //     {
@@ -75,16 +76,8 @@ export default class recommendations extends React.Component {
             <View style={styles.container}>
                 
                 <View style={styles.header}>
-                    <Text style={styles.headerTitle}>Recommendations</Text>
+                    <Text style={styles.headerTitle}>The log book</Text>
                     
-                    <TouchableOpacity
-                    style={{ alignSelf: "center", marginTop: 32 }}
-                    onPress={() => this.props.navigation.navigate("upload")}
-                >
-                    <Text style={{ color: "#ffffff", fontSize: 15, fontWeight: "800" }}>
-                        Want to add a recommendation ?<Text style={{ fontWeight: "900", color: "#d48e15" }}>Add here</Text>
-                    </Text>
-                </TouchableOpacity>
 
                 </View>
                 <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} > 
@@ -112,7 +105,7 @@ export default class recommendations extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#141213'
+        backgroundColor: '#691d48'
        
     },
     header: {
@@ -139,12 +132,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 16
     },
     feedItem: {
-        backgroundColor: "transparent",
+        backgroundColor: "#FFFFFF50",
         borderRadius: 5,
         padding: 8,
         flexDirection: "row",
         marginVertical: 8,
-        marginRight: 30
+        
     },
     avatar: {
         width: 36,

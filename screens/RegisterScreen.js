@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar, ImageBackground } from "react-native";
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar, ImageBackground, KeyboardAvoidingView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import UserPermissions from "../devicePermissions/UserPermissions";
 import * as ImagePicker from "expo-image-picker";
@@ -41,7 +41,7 @@ export default class RegisterScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container}>
                 <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
 
                 <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handlePickAvatar}>
@@ -69,8 +69,8 @@ export default class RegisterScreen extends React.Component {
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
                 </View>
 
-                <View style={styles.form}>
-                    <View>
+                <KeyboardAvoidingView style={styles.form}>
+                    <KeyboardAvoidingView>
                         <Text style={styles.inputTitle}> Enter name of property </Text>
                         <TextInput
                             
@@ -80,9 +80,9 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
                             value={this.state.user.name}
                         ></TextInput>
-                    </View>
+                    </KeyboardAvoidingView>
 
-                    <View style={{ marginTop: 32 }}>
+                    <KeyboardAvoidingView style={{ marginTop: 32 }}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput
                             style={styles.input}
@@ -90,9 +90,9 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
                             value={this.state.user.email}
                         ></TextInput>
-                    </View>
+                    </KeyboardAvoidingView>
 
-                    <View style={{ marginTop: 32 }}>
+                    <KeyboardAvoidingView style={{ marginTop: 32 }}>
                         <Text style={styles.inputTitle}>Password</Text>
                         <TextInput
                             style={styles.input}
@@ -101,8 +101,8 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
                             value={this.state.user.password}
                         ></TextInput>
-                    </View>
-                </View>
+                    </KeyboardAvoidingView>
+                </KeyboardAvoidingView>
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
                 </TouchableOpacity>
@@ -116,7 +116,7 @@ export default class RegisterScreen extends React.Component {
                     </Text>
                 </TouchableOpacity>
                 </ImageBackground>
-            </View>
+            </KeyboardAvoidingView>
         );
     }
 }
