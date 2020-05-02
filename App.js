@@ -2,7 +2,7 @@ import React from "react";
 //import FirebaseKeys from "./config";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createBottomTabNavigator } from "react-navigation-tabs"; 
 import { Ionicons } from "@expo/vector-icons";
 import LoadingScreen from "./screens/LoadingScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -11,9 +11,10 @@ import RegisterScreen from "./screens/RegisterScreen";
 import recommendations from "./screens/recommendations";
 import fireChat from "./screens/fireChat";
 import upload from "./screens/upload";
-import notifications from "./screens/notifications";
+import weatherPage from "./screens/WeatherPage";
 import profilePage from "./screens/profilePage";
 import controls from "./screens/controls";
+import WeatherApi from "./screens/WeatherApi";
 
 
 const AppContainer = createStackNavigator(
@@ -51,16 +52,16 @@ const AppContainer = createStackNavigator(
                     )
                 }
             },
-            notifications: {
-                screen: notifications,
+            WeatherApi: {
+                screen:  WeatherApi,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-options" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-sunny" size={24} color={tintColor} />
                 }
             },
             profilePage: {
                 screen: profilePage,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-sunny" size={30} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-options" size={30} color={tintColor} />
                 }
             }
         },
