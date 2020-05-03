@@ -73,14 +73,15 @@ export default class recommendations extends React.Component {
 
     render() {
         return (
+            
             <View style={styles.container}>
                 
                 <View style={styles.header}>
-                    <Text style={styles.headerTitle}>The log book</Text>
+                    <Text style={styles.headerTitle}>Log Book</Text>
                     
 
                 </View>
-                <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} > 
+                <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 
                 <FlatList
                 
                     style={styles.feed}
@@ -105,13 +106,13 @@ export default class recommendations extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#691d48'
+        
        
     },
     header: {
         paddingTop: 64,
         paddingBottom: 16,
-        backgroundColor: "#691d48",
+        backgroundColor: "#CFDEFF",
         alignItems: "center",
         justifyContent: "center",
         borderBottomWidth: 1,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 20,
         fontWeight: "500",
-        color: "#fff"
+        color: "#93A1DF"
         
     },
     feed: {
@@ -148,17 +149,17 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 20,
         fontWeight: "500",
-        color: "#07f00b"
+        color: "#93a1df"
     },
     timestamp: {
         fontSize: 11,
-        color: "#ffffff",
+        color: "#8490c8",
         marginTop: 4
     },
     post: {
         marginTop: 16,
         fontSize: 14,
-        color: "#ffffff"
+        color: "#7480b1"
     },
     postImage: {
         width: '100%',

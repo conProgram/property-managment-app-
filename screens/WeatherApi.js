@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { FlatList } from 'react-native';
+import { FlatList,ImageBackground, Text } from 'react-native';
 import WeatherPage from "./WeatherPage";
 
 
@@ -11,13 +11,13 @@ export default class WeatherApi extends React.Component {
 		this.state = {
 			latitude: 0,
 			longitude: 0,
-			forecast: [],
+			forecast: [], //Data from the weather api stored in this array
 			error:''
 		};
 	}
 
 	componentDidMount(){
-		// Get the user's location
+		// Get the device location
 		this.getLocation();
 	}
 
@@ -55,7 +55,9 @@ export default class WeatherApi extends React.Component {
 
 	render() {
 		return (
+			<ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 
 			<FlatList data={this.state.forecast.list} style={{marginTop:20}} keyExtractor={item => item.dt_txt} renderItem={({item}) => <WeatherPage detail={item} location={this.state.forecast.city.name} />} />
+			</ImageBackground>
 		);
 	}
 }

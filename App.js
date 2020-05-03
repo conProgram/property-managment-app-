@@ -76,13 +76,13 @@ const AppContainer = createStackNavigator(
                 } 
             },
             tabBarOptions: {
-                activeTintColor: "#ff31f7",
-                inactiveTintColor: "#6f3460",
+                activeTintColor: "#d1dffe",
+                inactiveTintColor: "#2a3550",
                 
                 showLabel: false,
     
                 style:{
-                    backgroundColor: '#000000',
+                    backgroundColor: '#717eb6',
                 }
             }
         }

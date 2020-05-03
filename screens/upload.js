@@ -62,29 +62,29 @@ export default class upload extends React.Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
-                <ImageBackground source={require("../assets/Post.png")} style={{width: '100%', height: '100%'}} >  
+                <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >  
                 <View style={styles.header}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                        <Ionicons name="md-arrow-back" size={24} color="#D8D9DB"></Ionicons>
+                        <Ionicons name="md-arrow-back" size={24} color="#000000"></Ionicons>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.handlePost}>
                         <Text style={{fontSize: 20,
         fontWeight: "500",
         color: "#fff",
         alignItems: 'center',
-        justifyContent: 'center'}}>PostIT</Text>
+        justifyContent: 'center'}}>Upload</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Image source={require("../assets/lez.jpg")} style={styles.avatar}></Image>
+                    <Image source={require("../assets/VillaMate.png")} style={styles.avatar}></Image>
                     {/* <Image source={this.state.user.avatar ? { uri: this.state.user.avatar } : require("")} style={styles.avatar} </Image> */}
                     <TextInput
                         
                         multiline={true}
                         numberOfLines={4}
-                        style={styles.inputContainer}
-                        placeholder="Add a caption "
+                        style={styles.inputText}
+                        placeholder="Upload a post to this property's Log Book "
                         placeholderTextColor= "#e3075b"
                         onChangeText={text => this.setState({ text })}
                         value={this.state.text}
@@ -92,7 +92,7 @@ export default class upload extends React.Component {
                 </View>
 
                 <TouchableOpacity style={styles.photo} onPress={this.pickImage}>
-                    <Ionicons name="md-camera" size={32} color="#D8D9DB"></Ionicons>
+                    <Ionicons name="md-camera" size={32} color="#000000"></Ionicons>
                 </TouchableOpacity>
 
                 <View style={{ marginHorizontal: 32, marginTop: 32, height: 300}}>
@@ -125,10 +125,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     inputContainer: {
+        backgroundColor: "#FFFFFF50",
         margin: 32,
         flexDirection: "row",
         color:"#e3075b", 
-        fontWeight:"300"    
+        fontWeight:"300"  
+          
+    },
+
+    inputText: {
+        
+        margin: 32,
+        flexDirection: "row",
+        color:"#e3075b", 
+        fontWeight:"300"  
+          
     },
     avatar: {
         width: 48,

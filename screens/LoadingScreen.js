@@ -8,6 +8,8 @@ export default class LoadingScreen extends React.Component {
         if (Fire.shared.uid) {
             this.props.navigation.navigate("App");
         } else {
+
+            //Checks to see which user has logged in
             firebase.auth().onAuthStateChanged(user => {
                 this.props.navigation.navigate(user ? "App" : "Auth");
             });
