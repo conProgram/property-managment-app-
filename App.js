@@ -11,9 +11,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import recommendations from "./screens/recommendations";
 import fireChat from "./screens/fireChat";
 import upload from "./screens/upload";
-import weatherPage from "./screens/WeatherPage";
-import profilePage from "./screens/profilePage";
-import controls from "./screens/controls";
+import controlsPage from "./screens/controlsPage";
+import homeScreen from "./screens/homeScreen";
 import WeatherApi from "./screens/WeatherApi";
 
 
@@ -34,8 +33,8 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
                 }
             },
-            controls: {
-                screen: controls,
+            homeScreen: {
+                screen: homeScreen,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => (
                         <Ionicons
@@ -58,8 +57,8 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-sunny" size={24} color={tintColor} />
                 }
             },
-            profilePage: {
-                screen: profilePage,
+            controlsPage: {
+                screen: controlsPage,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-options" size={30} color={tintColor} />
                 }

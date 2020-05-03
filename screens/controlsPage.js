@@ -3,7 +3,7 @@ import { View, Text, StyleSheet,Button, ImageBackground, Image } from "react-nat
 import * as firebase from "firebase";
 import Fire from "../Fire";
 
-export default class profilePage extends React.Component {
+export default class controlsPage extends React.Component {
     
     state = {
         user: {}

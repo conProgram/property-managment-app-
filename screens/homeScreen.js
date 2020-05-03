@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet,TouchableOpacity, ImageBackground } from "react-native";
 import * as firebase from "firebase";
 
-export default class controls extends React.Component {
+export default class homeScreen extends React.Component {
     
     state = { email: "", displayName: "" };
 
