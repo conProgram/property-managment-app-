@@ -1,66 +1,27 @@
 import React from "react";
-import { View, Text, StyleSheet,Button, ImageBackground, Image } from "react-native";
+import { View, Text, StyleSheet,Button, ImageBackground, Image, TouchableOpacity } from "react-native";
 import * as firebase from "firebase";
 import Fire from "../Fire";
 
 export default class controlsPage extends React.Component {
     
-    state = {
-        user: {}
-    };
-
-    unsubscribe = null;
-
-    componentDidMount() {
-        const { email, displayName } = firebase.auth().currentUser;
-
-        this.setState({ email, displayName });
-
-        const user = this.props.uid || Fire.shared.uid;
-
-        this.unsubscribe = Fire.shared.firestore
-            .collection("users")
-            .doc(user)
-            .onSnapshot(doc => {
-                this.setState({ user: doc.data() });
-            });
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-    
-    
-    
-
-    
     render() {
         return (
             <View style={styles.container}>
-                 <ImageBackground source={require("../assets/Profile.png")} style={{width: '100%', height: '100%'}} >
-                     
-            <View style={{ marginTop: 200, alignItems: "center" }}>
-                <View style={styles.avatarContainer}>
-                    <Image
-                        source={
-                            this.state.user.avatar
-                                ? { uri: this.state.user.avatar }
-                                : require("../assets/saz.jpg")
-                        }
-                        style={styles.avatar}
-                    />
-                    
-                    
-                </View>
-                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.displayName}  </Text>
-                
-                <Button
-                    onPress={() => {
-                        Fire.shared.signOut();
-                    }}
-                    title="Log out"
-                />
-            </View>
+            
+            <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
+            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("poolControls")}>
+            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Pool Controls</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("acControls")}>
+            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>A/C Controls</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("maintenceLog")}>
+            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>maintence Log</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ownerChat")}>
+            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Live chat page</Text>
+            </TouchableOpacity>
             </ImageBackground>
             
         </View>
@@ -75,20 +36,22 @@ const styles = StyleSheet.create({
         justifyContent: "center"
        
     },
-    
-    profile: {
-        marginTop: 64,
-        alignItems: "center"
-    },
-    avatarContainer: {
-        shadowColor: "#151734",
-        shadowRadius: 30,
-        shadowOpacity: 0.4
-    },
-    avatar: {
-        width: 136,
-        height: 136,
-        borderRadius: 68
+    button: {
+        backgroundColor: '#72249c',
+        height: 70,
+        marginHorizontal: 20,
+        borderRadius: 35,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
+        fontSize: 50,
+        marginTop: 100
     },
     backgroundImage: {
             

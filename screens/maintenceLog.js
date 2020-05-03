@@ -3,60 +3,18 @@ import { View, Text, StyleSheet,Button, ImageBackground, Image } from "react-nat
 import * as firebase from "firebase";
 import Fire from "../Fire";
 
-export default class homeScreen extends React.Component {
+export default class acControls extends React.Component {
 
     static navigationOptions = {
         headerShown: false
     };
-    
-    state = {
-        user: {}
-    };
-
-    unsubscribe = null;
-
-    componentDidMount() {
-        const { email, displayName } = firebase.auth().currentUser;
-
-        this.setState({ email, displayName });
-
-        const user = this.props.uid || Fire.shared.uid;
-
-        this.unsubscribe = Fire.shared.firestore
-            .collection("users")
-            .doc(user)
-            .onSnapshot(doc => {
-                this.setState({ user: doc.data() });
-            });
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-    
-    
-    
-
-    
+  
     render() {
         return (
             <View style={styles.container}>
                  <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
                      
-            <View style={{ marginTop: 200, alignItems: "center" }}>
-                <View style={styles.avatarContainer}>
-                    <Image
-                        source={
-                            this.state.user.avatar
-                                ? { uri: this.state.user.avatar }
-                                : require("../assets/saz.jpg")
-                        }
-                        style={styles.avatar}
-                    />
-                    
-                    
-                </View>
-                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.user.displayName}  </Text>
+                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>THIS IS THE maitence log </Text>
                 
                 <Button
                     onPress={() => {
@@ -64,7 +22,7 @@ export default class homeScreen extends React.Component {
                     }}
                     title="Log out"
                 />
-            </View>
+          
             </ImageBackground>
             
         </View>

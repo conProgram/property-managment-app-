@@ -9,14 +9,15 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 
 import recommendations from "./screens/recommendations";
-import fireChat from "./screens/fireChat";
 import upload from "./screens/upload";
 import controlsPage from "./screens/controlsPage";
 import homeScreen from "./screens/homeScreen";
 import WeatherApi from "./screens/WeatherApi";
+import poolControls from "./screens/poolControls";
 
 
 const AppContainer = createStackNavigator(
+    
 {
 
     default: createBottomTabNavigator(
@@ -62,7 +63,9 @@ const AppContainer = createStackNavigator(
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-options" size={30} color={tintColor} />
                 }
-            }
+            },
+           
+
         },
         {
             defaultNavigationOptions: {

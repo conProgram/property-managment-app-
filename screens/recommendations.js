@@ -62,7 +62,7 @@ export default class recommendations extends React.Component {
                             <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
                         </View>
 
-                        <Ionicons name="ios-more" size={24} color="#73788B" />
+                       
                     </View>
                     <Text style={styles.post}>{post.text}</Text>
                     <Image source={{ uri: post.image }} style={styles.postImage} resizeMode="cover" />
