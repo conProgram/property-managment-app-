@@ -19,10 +19,14 @@ export default class WeatherPage extends Component {
 			<Card containerStyle={styles.card}>
 				
 				<Text style={styles.notes}>{this.props.location}</Text>
+		
 				
 				<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
-					<Image style={{width:100, height:100}} source={{uri:"https://openweathermap.org/img/w/" + this.props.detail.weather[0].icon + ".png"}} />
+					<Image style={{width:100, height:100}} source={{uri:"https://openweathermap.org/img/w/" + 
+					this.props.detail.weather[0].icon + ".png"}} />
 					<Text style={styles.time}>{time}</Text>
+					
+					
 				</View>
 
 				<Divider style={{ backgroundColor: '#dfe6e9', marginVertical:20}} />
@@ -30,6 +34,7 @@ export default class WeatherPage extends Component {
 				<View style={{flexDirection:'row', justifyContent:'space-between'}}>
 					<Text style={styles.notes}>{this.props.detail.weather[0].description}</Text>
 					<Text style={styles.notes}>{Math.round( this.props.detail.main.temp * 10) / 10 }&#8451;</Text>
+					
 				</View>
 				
 			</Card>
