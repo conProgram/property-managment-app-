@@ -13,12 +13,35 @@ import upload from "./screens/upload";
 import controlsPage from "./screens/controlsPage";
 import homeScreen from "./screens/homeScreen";
 import WeatherApi from "./screens/WeatherApi";
+
 import poolControls from "./screens/poolControls";
+import maintenceLog from "./screens/maintenceLog";
+import ownerChat from "./screens/ownerChat";
+import acControls from "./screens/acControls";
+
+
+
+const AppNavigator = createStackNavigator({
+        poolControls: {
+            screen: poolControls
+        },
+        maintenceLog:{
+            screen: maintenceLog
+        },
+        ownerChat:{
+            screen: ownerChat
+        },
+        acControls:{
+            screen: acControls
+        }
+})
+
 
 
 const AppContainer = createStackNavigator(
     
 {
+
 
     default: createBottomTabNavigator(
         {
@@ -111,6 +134,7 @@ export default createAppContainer(
         {
             Loading: LoadingScreen,
             App: AppContainer,
+            nav: AppNavigator,
             Auth: AuthStack
         },
         {

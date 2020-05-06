@@ -84,8 +84,8 @@ export default class WeatherApi extends React.Component {
 			<View style={styles.container}>
 			<View style={styles.header}>
             
-			<Text style={styles.headerTitle}>The weather for today</Text>
-			<Text style={styles.notes}>{currentDate} / {month} / {year}</Text>
+			<Text style={styles.headerTitle}>The weather for every 3 hours of the next 5 days</Text>
+			<Text style={styles.notes}>Today's date is: {currentDate} / {month} / {year}</Text>
                     
 
             </View>

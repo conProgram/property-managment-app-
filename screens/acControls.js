@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet,Button, ImageBackground, Image } from "react-native";
+import { View, Text, StyleSheet,Button, ImageBackground, Image, TouchableOpacity } from "react-native";
 import * as firebase from "firebase";
 import Fire from "../Fire";
 
@@ -13,17 +13,14 @@ export default class acControls extends React.Component {
         return (
             <View style={styles.container}>
                  <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
-                     
+                 <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                        <Ionicons name="md-arrow-back" size={24} color="#000000"></Ionicons>
+                    </TouchableOpacity>    
                 <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>THIS IS THE A/C CONTROLS </Text>
                 
-                <Button
-                    onPress={() => {
-                        Fire.shared.signOut();
-                    }}
-                    title="Log out"
-                />
+              
           
-            </ImageBackground>
+                </ImageBackground>
             
         </View>
     );

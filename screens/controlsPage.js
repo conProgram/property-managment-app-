@@ -1,9 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet,Button, ImageBackground, Image, TouchableOpacity } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import * as firebase from "firebase";
 import Fire from "../Fire";
-import { createNavigationContainer } from "react-navigation";
+
 
 export default class controlsPage extends React.Component {
     
@@ -12,7 +11,6 @@ export default class controlsPage extends React.Component {
            
             
             <View style={styles.container}>
-            <NavigationContainer>
             <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("poolControls")}>
             <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Pool Controls</Text>
@@ -27,7 +25,6 @@ export default class controlsPage extends React.Component {
             <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Live chat page</Text>
             </TouchableOpacity>
             </ImageBackground>
-            </NavigationContainer>
             
         </View>
        
