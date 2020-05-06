@@ -27,18 +27,18 @@ export default class recommendations extends React.Component {
     };
 
     componentDidMount() {
-        const { email, name } = firebase.auth().currentUser;
+        //const { email, name } = firebase.auth().currentUser;
 
-        this.setState({ email, name });
+        //this.setState({ email, name });
 
-        const currentUserNow = email;
+        //const currentUserNow = email;
 
-        const user = this.props.uid || Fire.shared.uid;
+        //const user = this.props.uid || Fire.shared.uid;
 
         this.ref = firebase.firestore();
 
         this.ref
-            .collection("posts").where('email', '==' ,'currentUserNow')
+            .collection("posts") //.where('email', '==' ,'currentUserNow')
             .orderBy("timestamp", "desc")
             .onSnapshot(snapshot => {
                 //gets snapshot of database to show
