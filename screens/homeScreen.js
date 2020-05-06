@@ -16,9 +16,9 @@ export default class homeScreen extends React.Component {
     unsubscribe = null;
 
     componentDidMount() {
-        const { email, displayName } = firebase.auth().currentUser;
+        const { email, name } = firebase.auth().currentUser;
 
-        this.setState({ email, displayName });
+        this.setState({ email, name });
 
         const user = this.props.uid || Fire.shared.uid;
 
@@ -30,9 +30,9 @@ export default class homeScreen extends React.Component {
             });
     }
 
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
+    // componentWillUnmount() {
+    //     this.unsubscribe();
+    // }
     
     
     
@@ -56,8 +56,7 @@ export default class homeScreen extends React.Component {
                     
                     
                 </View>
-                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.user.displayName}  </Text>
-                
+                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.user.name}  </Text>
                 <Button
                     onPress={() => {
                         Fire.shared.signOut();
