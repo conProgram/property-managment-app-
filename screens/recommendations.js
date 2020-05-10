@@ -26,18 +26,20 @@ export default class recommendations extends React.Component {
         posts: []
     };
 
-    componentDidMount() {
-        //const { email, name } = firebase.auth().currentUser;
+    async componentDidMount() {
+        const {email, name} = await firebase.auth().currentUser; //waits for current email to be loaded
 
-        //this.setState({ email, name });
+        this.setState({email, name}); //sets email to email
 
-        //const currentUserNow = email;
+        const currentUserNow = email; //assigns email to new varibles
 
-        //const user = this.props.uid || Fire.shared.uid;
+        const user = this.props.uid || Fire.shared.uid;
 
         this.ref = firebase.firestore();
 
         this.ref
+
+            //This is where the program crashes 
             .collection("posts") //.where('email', '==' ,'currentUserNow')
             .orderBy("timestamp", "desc")
             .onSnapshot(snapshot => {
