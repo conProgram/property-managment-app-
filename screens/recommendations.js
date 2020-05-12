@@ -28,10 +28,11 @@ export default class recommendations extends React.Component {
 
     async componentDidMount() {
         const {email, name} = await firebase.auth().currentUser; //waits for current email to be loaded
-
+        console.log(email, name);
         this.setState({email, name}); //sets email to email
 
         const currentUserNow = email; //assigns email to new varibles
+        
 
         const user = this.props.uid || Fire.shared.uid;
 
@@ -40,7 +41,7 @@ export default class recommendations extends React.Component {
         this.ref
 
             //This is where the program crashes 
-            .collection("posts") //.where('email', '==' ,'currentUserNow')
+            .collection("posts")//.where('email', '==' ,'currentUserNow')
             .orderBy("timestamp", "desc")
             .onSnapshot(snapshot => {
                 //gets snapshot of database to show
@@ -68,6 +69,7 @@ export default class recommendations extends React.Component {
                     <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                         <View>
                             <Text style={styles.name}>{post.user.name}</Text>
+                            <Text style={styles.name}>{post.user.email} </Text>
 
                             <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
                         </View>

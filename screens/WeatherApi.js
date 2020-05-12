@@ -84,7 +84,7 @@ export default class WeatherApi extends React.Component {
 			<View style={styles.container}>
 			<View style={styles.header}>
             
-			<Text style={styles.headerTitle}>The weather for every 3 hours of the next 5 days</Text>
+			<Text style={styles.headerTitle}>The weather forecast</Text>
 			<Text style={styles.notes}>Today's date is: {currentDate} / {month} / {year}</Text>
                     
 
@@ -92,7 +92,8 @@ export default class WeatherApi extends React.Component {
 			
 			<ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 
 			<FlatList data={this.state.forecast.list} style={{marginTop:20}} 
-			keyExtractor={item => item.dt_txt} renderItem={({item}) => <WeatherPage detail={item} location={this.state.forecast.city.name} />} />
+			keyExtractor={item => item.dt_txt} renderItem={({item}) => 
+			<WeatherPage detail={item} location={this.state.forecast.city.name} />} />
 			</ImageBackground>
 			</View>
 		);
