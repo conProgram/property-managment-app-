@@ -60,14 +60,16 @@ function runTiming(clock, value, dest) {
 
 
 
+
+
 export default class LoginScreen extends React.Component {
-    constructor() {
+ 
 
-
+  constructor() {
         super();
-    
-        
-    
+
+
+
         this.buttonOpacity = new Value(1);
     
         this.onStateChange = event([
@@ -129,20 +131,25 @@ export default class LoginScreen extends React.Component {
     };
     
     state = {
-        email: "",
-        password: "",
-        errorMessage: null
-    };
+      email: "",
+      password: "",
+      errorMessage: null
+  };
+  
+  handleLogin = () => {
+    const { email, password } = this.state;
+  
+    firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(error => this.setState({ errorMessage: error.message }));
+        console.log(email);
+        console.log(password);
+  };
+  
+    
 
-    handleLogin = () => {
-        const { email, password } = this.state;
-
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .catch(error => this.setState({ errorMessage: error.message }));
-    };
-
+    
     render() {
       return (
         <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white', justifyContent: 'flex-end', }} behavior="padding" enabled>
@@ -196,23 +203,8 @@ export default class LoginScreen extends React.Component {
               }}
             >
   
-              <Button title='NEED HELP?' color='black' onPress={() => navigation.navigate('openScreen')} />
+              <Button title='Do you own a property ?' color='black' onPress={() => this.props.navigation.navigate("Register")} />
             </Animated.View>
-  
-  
-            {/* <Animated.View //Second button creation 
-              style={{
-                ...styles.button,
-                backgroundColor: '#dea31b',
-                opacity: this.buttonOpacity,
-                transform: [{ translateY: this.buttonY }]
-              }}
-            >
-              <Text style={{ fontSize: 22, fontWeight: 'bold', color: 'white' }}>
-                Need help?
-              </Text>
-            </Animated.View>
-   */}
          
             <Animated.View style={{
   
@@ -227,7 +219,6 @@ export default class LoginScreen extends React.Component {
               <TapGestureHandler onHandlerStateChange={this.onCloseState}>
                 <Animated.View style={styles.closeButton}>
                   <Animated.Text style={{ fontSize: 15 }}> X </Animated.Text>
-                  
                 </Animated.View>
               </TapGestureHandler>
   
@@ -243,36 +234,32 @@ export default class LoginScreen extends React.Component {
                          ></TextInput>
               
                        
-              <TextInput
+                          <TextInput
                              placeholder="Password"
                              style={styles.TextInput}
                              placeholderTextColor="black"
                             secureTextEntry
-                             autoCapitalize="none"
+                            autoCapitalize="none"
                             onChangeText={password => this.setState({ password })}
                             value={this.state.password}
                          ></TextInput>
                          
               
-                <View style={styles.button}>
+                
+                <TouchableOpacity
+                style={{ alignSelf: "center", marginTop: 32 }}
+                     onPress={() => this.handleLogin}
+                 >
+                     <Text style={{ color: "#1eb375", fontSize: 20, fontWeight: "800" }}>
+                         Sign in 
+                    </Text>
                     
-                    <Button
-                    title="Sign In"
-                    onPress={this.handleLogin} />
+
+                    </TouchableOpacity>
+                <View style={{ alignSelf: "center", marginTop: 30}}>
 
                 </View>
                 
-
-
-                
-                 {/* <TouchableOpacity
-                     style={{ alignSelf: "center", marginTop: 32 }}
-                     onPress={() => this.props.navigation.navigate("Register")}
-                 >
-                     <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800" }}>
-                         New Member? <Text style={{ fontWeight: "900", color: "#72249c" }}>Sign up</Text>
-                    </Text>
-                 </TouchableOpacity> */}
 
 
                  </Animated.View>
@@ -283,68 +270,8 @@ export default class LoginScreen extends React.Component {
       </KeyboardAvoidingView>
       );}}
       
-      {/* // LayoutAnimation.easeInEaseOut();
-
-        // return (
-        //     <View style={styles.container}>
-        //         <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
-        //         <StatusBar barStyle="light-content"></StatusBar>
-                
-        //         <Text style={styles.greeting}>{`Welcome to\n`}<Text style={{ fontWeight: "900", color: "#d48e15" }}>VillaMate</Text>
-                
-        //         </Text>
-
-                
-                    
-
-        //         <View style={styles.errorMessage}>
-        //             {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-        //         </View>
-
-        //         <View style={styles.form}>
-                
-        //             <View>
-        //                 <Text style={styles.inputTitle}>Email Address</Text>
-        //                 <TextInput
-        //                     style={styles.input}
-        //                     autoCapitalize="none"
-        //                     onChangeText={email => this.setState({ email })}
-        //                     value={this.state.email}
-        //                 ></TextInput>
-        //             </View>
-
-        //             <View style={{ marginTop: 32 }}>
-        //                 <Text style={styles.inputTitle}>Password</Text>
-        //                 <TextInput
-        //                     style={styles.input}
-        //                     secureTextEntry
-        //                     autoCapitalize="none"
-        //                     onChangeText={password => this.setState({ password })}
-        //                     value={this.state.password}
-        //                 ></TextInput>
-        //             </View>
-                   
-        //         </View>
-
-        //         <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-        //             <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Sign in</Text>
-        //         </TouchableOpacity>
-
-        //         <TouchableOpacity
-        //             style={{ alignSelf: "center", marginTop: 32 }}
-        //             onPress={() => this.props.navigation.navigate("Register")}
-        //         >
-        //             <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800" }}>
-        //                 New Member? <Text style={{ fontWeight: "900", color: "#72249c" }}>Sign up</Text>
-        //             </Text>
-        //         </TouchableOpacity>
-        //         </ImageBackground>
-        //     </View>
-            
-        // ); */}
+      
         
- 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1
