@@ -41,9 +41,15 @@ export default class homeScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                 <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
-                     
-            <View style={{ marginTop: 200, alignItems: "center" }}>
+                 <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >
+
+                  <View style={{alignItems: "center", marginTop: 100 }} > 
+                  <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to: </Text>
+                <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 20 }}>{this.state.user.name}  </Text> 
+
+                  </View>
+                      
+            <View style={{ marginTop: 50, alignItems: "center" }}>
                 <View style={styles.avatarContainer}>
                     <Image
                         source={
@@ -54,15 +60,25 @@ export default class homeScreen extends React.Component {
                         style={styles.avatar}
                     />
                     
+
                     
                 </View>
-                <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to {this.state.user.name}  </Text>
-                <Button
+
+                <View style={styles.button}>
+                <Button title='Log Out' color= "#717eb6"
+                onPress={() => {
+                        Fire.shared.signOut();
+                    }} />
+                </View>
+                
+                
+                
+                {/* <Button
                     onPress={() => {
                         Fire.shared.signOut();
                     }}
                     title="Log out"
-                />
+                /> */}
             </View>
             </ImageBackground>
             
@@ -89,9 +105,10 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4
     },
     avatar: {
-        width: 200,
-        height: 200,
-        borderRadius: 68
+        width: 360,
+        height: 300,
+        justifyContent: "center"
+        
     },
     backgroundImage: {
             
@@ -106,7 +123,26 @@ const styles = StyleSheet.create({
             // justifyContent: 'flex-start',
         
         
-        }}
+        },
+        button: {
+            backgroundColor: '#d8e4fe70',
+            height: 50,
+            width: 170,
+            marginHorizontal: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginVertical: 5,
+            shadowOffset: { width: 2, height: 2 },
+            shadowColor: 'black',
+            shadowOpacity: 0.2,
+            shadowOffset: { width: 2, height: 2 },
+            shadowColor: 'black',
+            shadowOpacity: 0.4,
+            fontSize: 50,
+            marginTop: 80,
+            
+            
+        },}
 
         
     
