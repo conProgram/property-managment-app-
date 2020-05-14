@@ -70,7 +70,7 @@ export default class RegisterScreen extends React.Component {
                 </View>
 
                 <KeyboardAvoidingView style={styles.form}>
-                    <KeyboardAvoidingView>
+                    
                         <Text style={styles.inputTitle}> Enter name of property </Text>
                         <TextInput
                             
@@ -80,9 +80,9 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
                             value={this.state.user.name}
                         ></TextInput>
-                    </KeyboardAvoidingView>
+                    
 
-                    <KeyboardAvoidingView style={{ marginTop: 32 }}>
+                    
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput
                             style={styles.input}
@@ -90,9 +90,9 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
                             value={this.state.user.email}
                         ></TextInput>
-                    </KeyboardAvoidingView>
+                   
 
-                    <KeyboardAvoidingView style={{ marginTop: 32 }}>
+                  
                         <Text style={styles.inputTitle}>Password</Text>
                         <TextInput
                             style={styles.input}
@@ -101,7 +101,8 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
                             value={this.state.user.password}
                         ></TextInput>
-                    </KeyboardAvoidingView>
+                    
+
                 </KeyboardAvoidingView>
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>

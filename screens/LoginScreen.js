@@ -55,18 +55,11 @@ function runTiming(clock, value, dest) {
   ]);
 }
 
-
-
-
-
-
-
-
 export default class LoginScreen extends React.Component {
  
 
-  constructor() {
-        super();
+  constructor(props) {
+        super(props);
 
 
 
