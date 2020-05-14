@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { FlatList,ImageBackground, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import WeatherPage from "./WeatherPage";
 
+
 var isLoaded = false;
 
 var that = this;
@@ -69,12 +70,15 @@ export default class WeatherApi extends React.Component {
 	render() {
 		if(isLoaded == false){
 			return(
+				
 				<View style={styles.loadingBox}>
                  
-                <Text>Getting the most up to date weather data</Text>
-                <ActivityIndicator size="large"></ActivityIndicator>
+                <Text style={styles.loadingText}>Getting the most up-to-date weather data... </Text>
+                <ActivityIndicator size="large" color= "#2a3550"></ActivityIndicator>
                 
             </View>
+
+			
 			);
 
 		}
@@ -84,8 +88,8 @@ export default class WeatherApi extends React.Component {
 			<View style={styles.container}>
 			<View style={styles.header}>
             
-			<Text style={styles.headerTitle}>The weather forecast</Text>
-			<Text style={styles.notes}>Today's date is: {currentDate} / {month} / {year}</Text>
+			<Text style={styles.headerTitle}>Weather Forecast</Text>
+			{/* <Text style={styles.notes}>Today's date is: {currentDate} / {month} / {year}</Text> */}
                     
 
             </View>
@@ -127,7 +131,16 @@ const styles = StyleSheet.create({
 	loadingBox:{
 		flex: 1,
 		justifyContent: "center",
-        alignItems: "center"
+		alignItems: "center",
+		backgroundColor: "#93A1DF"
+		
+	},
+	loadingText:{
+		paddingBottom: 30,
+		color: "#2a3550",
+		fontSize: 15,
+		fontWeight: "bold"
 	}
+
 });
 

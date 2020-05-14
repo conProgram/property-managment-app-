@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Image, ImageBackground } from 'react-native';
 import { Text, Card, Divider } from 'react-native-elements';
+import { Ionicons } from "@expo/vector-icons";
 
 
 export default class WeatherPage extends Component {
@@ -14,6 +15,8 @@ export default class WeatherPage extends Component {
 		var apiMonth = date.getMonth() + 1; 
 		var apiyear = date.getUTCFullYear();
 
+		var apiMonthString = date.getUTCDate();
+
 		
 
 		time = hours + ':' + minutes.substr(-2);
@@ -23,7 +26,7 @@ export default class WeatherPage extends Component {
 
 			<Card containerStyle={styles.card}>
 				
-				<Text style={styles.notes}>Location: {this.props.location}</Text>
+				<Text style ={styles.notes}> <Ionicons name="ios-pin" size={24} color={'#717eb6'} /> {this.props.location}</Text>
 		
 				
 					<View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
@@ -56,18 +59,18 @@ export default class WeatherPage extends Component {
 
 const styles = StyleSheet.create({
 	card:{
-		backgroundColor:'rgba(56, 172, 236, 1)',
+		backgroundColor:'#FFFFFF50',
 		borderWidth:0,
 		borderRadius:20
 	},
 	time:{
 		fontSize:38,
-		color:'#fff'
+		color:'#717eb6'
 	},
 	notes: {
 		fontSize: 18,
 		paddingBottom: 10,
-		color:'#fff',
+		color:'#717eb6',
 		textTransform:'capitalize'
 	}
 });
