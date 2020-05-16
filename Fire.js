@@ -82,6 +82,8 @@ class Fire {
                 name: user.name,
                 email: user.email,
                 avatar: "",
+                acessCode: user.code,
+                accessInstructions: user.accessInstructions,
                 uid: this.uid
             });
 
@@ -95,6 +97,7 @@ class Fire {
         }
     };
 
+    
     signOut = () => {
         firebase.auth().signOut();
     };

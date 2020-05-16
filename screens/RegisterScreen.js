@@ -16,12 +16,19 @@ export default class RegisterScreen extends React.Component {
             email: "",
             password: "",
             avatar: "../assets/lez.jpg",
+            accessCode: "",
+            accessInstructions: ""
         },
         errorMessage: null
     };
 
     handleSignUp = () => {
         Fire.shared.createUser(this.state.user);
+        console.log(name);
+        console.log(email);
+        console.log(password);
+        console.log(accessCode);
+        console.log(accessInstructions);
     };
 
     handlePickAvatar = async () => {
@@ -41,9 +48,9 @@ export default class RegisterScreen extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={styles.container}>
+            <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'flex-end', }} behavior="padding" enabled>
                 <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
-
+                <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'flex-end'}}>
                 <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handlePickAvatar}>
                         <Image source={{ uri: this.state.user.avatar }} style={styles.avatar} />
                         <Ionicons
@@ -55,25 +62,25 @@ export default class RegisterScreen extends React.Component {
                     </TouchableOpacity>
                
                 
-                <StatusBar barStyle="light-content"></StatusBar>
-                <Text style={styles.greeting}>{`ADD A Photo of your Villa here\n`}<Text style={{ fontWeight: "900", color: "#d48e15" }}>Enter your details</Text></Text>
+                
+                <Text style={styles.greeting}>{`ADD A Photo of your property here\n`}</Text>
                 
                 
 
                 <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>
-                    <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"></Ionicons>
+                    
+                    <Ionicons name="ios-arrow-round-back" size={40} color="#FFF"></Ionicons>
                 </TouchableOpacity>
                 
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
                 </View>
-
-                <KeyboardAvoidingView style={styles.form}>
+                
+                <View style={styles.form}>
                     
                         <Text style={styles.inputTitle}> Enter name of property </Text>
                         <TextInput
-                            
                             style={styles.input}
                             placeholderTextColor = "#d48e15"
                             placeholder = "For example Stunning Waterfront Villa"
@@ -81,9 +88,7 @@ export default class RegisterScreen extends React.Component {
                             value={this.state.user.name}
                         ></TextInput>
                     
-
-                    
-                        <Text style={styles.inputTitle}>Email Address</Text>
+                        <Text style={styles.inputTitle}>Email Address (Your guests will use this to login)</Text>
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
@@ -91,9 +96,7 @@ export default class RegisterScreen extends React.Component {
                             value={this.state.user.email}
                         ></TextInput>
                    
-
-                  
-                        <Text style={styles.inputTitle}>Password</Text>
+                        <Text style={styles.inputTitle}>Password (Your guests will use this to login)</Text>
                         <TextInput
                             style={styles.input}
                             secureTextEntry
@@ -101,8 +104,26 @@ export default class RegisterScreen extends React.Component {
                             onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
                             value={this.state.user.password}
                         ></TextInput>
+
+                    <Text style={styles.inputTitle}>Access Code to the property</Text>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={accessCode => this.setState({ user: { ...this.state.user, accessCode } })}
+                            value={this.state.user.accessCode}
+                        ></TextInput>
+                    
+                    <Text style={styles.inputTitle}>Access instructions to the property</Text>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            multiline = {true}
+                            onChangeText={accessInstructions => this.setState({ user: { ...this.state.user, accessInstructions } })}
+                            value={this.state.user.accessInstructions}
+                        ></TextInput>
                     
 
+                </View>
                 </KeyboardAvoidingView>
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
@@ -112,9 +133,6 @@ export default class RegisterScreen extends React.Component {
                     style={{ alignSelf: "center", marginTop: 32 }}
                     onPress={() => this.props.navigation.navigate("Login")}
                 >
-                    <Text style={{ color: "#ffffff", fontSize: 20, fontWeight: "800" }}>
-                        Already have an account? <Text style={{ fontWeight: "900", color: "#72249c" }}>Sign in</Text>
-                    </Text>
                 </TouchableOpacity>
                 </ImageBackground>
             </KeyboardAvoidingView>
@@ -127,11 +145,12 @@ const styles = StyleSheet.create({
         
     },
     greeting: {
-        marginTop: 30,
+        marginTop: 40,
         fontSize: 30,
         fontWeight: "500",
         textAlign: "center",
-        color: "#FFF"
+        color: "#FFF",
+        marginBottom: -80
     },
     form: {
         marginBottom: 48,
@@ -204,7 +223,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: 100,
         height: 100,
-        borderRadius: 50,
+        //borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
         

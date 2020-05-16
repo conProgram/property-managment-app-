@@ -28,7 +28,7 @@ export default class recommendations extends React.Component {
 
     async componentDidMount() {
         const {email} = await firebase.auth().currentUser; //waits for current email to be loaded
-        console.log(email);
+       // console.log(email);
         
 
 
@@ -37,13 +37,14 @@ export default class recommendations extends React.Component {
         this.ref
 
 
-            .collection("posts").where('email', '==' ,email)
+            .collection("posts").where('user.email', '==' ,email)
             .orderBy("timestamp", "desc")
             .onSnapshot(snapshot => {
                 //gets snapshot of database to show
                 posts = [];
                 snapshot.forEach(post => {
                     posts.push(post.data());
+                    console.log('post', post.data());
 
                     //add each post to the posts array here
                 });

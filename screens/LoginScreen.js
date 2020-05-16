@@ -241,7 +241,8 @@ export default class LoginScreen extends React.Component {
                 
                 <TouchableOpacity
                 style={{ alignSelf: "center", marginTop: 32 }}
-                     onPress={() => this.handleLogin}
+                     onPress={() => this.handleLogin()}
+                     
                  >
                      <Text style={{ color: "#1eb375", fontSize: 20, fontWeight: "800" }}>
                          Sign in 

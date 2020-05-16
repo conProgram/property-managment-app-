@@ -24,6 +24,12 @@ export default class controlsPage extends React.Component {
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ownerChat")}>
             <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Live chat page</Text>
             </TouchableOpacity>
+            <View style={styles.button}>
+                <Button title='Log Out' color= "#717eb6"
+                onPress={() => {
+                        Fire.shared.signOut();
+                    }} />
+                </View>
             </ImageBackground>
             
         </View>
@@ -40,10 +46,10 @@ const styles = StyleSheet.create({
        
     },
     button: {
-        backgroundColor: '#72249c',
-        height: 70,
+        backgroundColor: '#d8e4fe70',
+        height: 50,
+        width: 170,
         marginHorizontal: 20,
-        borderRadius: 35,
         alignItems: 'center',
         justifyContent: 'center',
         marginVertical: 5,
@@ -54,7 +60,9 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 0.4,
         fontSize: 50,
-        marginTop: 100
+        marginTop: 80,
+        
+        
     },
     backgroundImage: {
             
