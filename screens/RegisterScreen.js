@@ -24,11 +24,11 @@ export default class RegisterScreen extends React.Component {
 
     handleSignUp = () => {
         Fire.shared.createUser(this.state.user);
-        console.log(name);
-        console.log(email);
-        console.log(password);
-        console.log(accessCode);
-        console.log(accessInstructions);
+        // console.log(this.state.user.name);
+        // console.log(this.state.user.email);
+        // console.log(this.state.user.password);
+        // console.log(this.state.user.accessCode);
+        // console.log(this.state.user.accessInstructions);
     };
 
     handlePickAvatar = async () => {
@@ -84,6 +84,7 @@ export default class RegisterScreen extends React.Component {
                             style={styles.input}
                             placeholderTextColor = "#d48e15"
                             placeholder = "For example Stunning Waterfront Villa"
+                            //onChangeText={name => console.log(name)}
                             onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
                             value={this.state.user.name}
                         ></TextInput>

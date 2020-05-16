@@ -76,13 +76,13 @@ class Fire {
         try {
             await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
 
-            let db = this.firestore.collection("users").doc(this.uid);
+            let db = this.firestore.collection("users").doc("abc");
 
             db.set({
                 name: user.name,
                 email: user.email,
                 avatar: "",
-                acessCode: user.code,
+                acessCode: user.accesscode,
                 accessInstructions: user.accessInstructions,
                 uid: this.uid
             });
@@ -95,6 +95,7 @@ class Fire {
         } catch (error) {
             alert("Create user error in firebase", error);
         }
+        //console.log(user);
     };
 
     
