@@ -72,7 +72,7 @@ class Fire {
 
     createUser = async user => {
         let remoteUri = null;
-
+        console.log(user.accessCode, user.accessInstructions);
         try {
             await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
 
@@ -82,12 +82,13 @@ class Fire {
                 name: user.name,
                 email: user.email,
                 avatar: "",
-                // acessCode: user.code,
-                // accessInstructions: user.accessInstructions,
+                accessCode: user.accessCode,
+                accessInstructions: user.accessInstructions,
                 uid: this.uid
             });
 
             if (user.avatar) {
+                
                 remoteUri = await this.uploadPhotoAsync(user.avatar, `avatars/${this.uid}`);
 
                 db.set({ avatar: remoteUri }, { merge: true });
