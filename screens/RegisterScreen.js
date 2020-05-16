@@ -16,8 +16,8 @@ export default class RegisterScreen extends React.Component {
             email: "",
             password: "",
             avatar: "../assets/lez.jpg",
-            accessCode: "",
-            accessInstructions: ""
+            // accessCode: "",
+            // accessInstructions: ""
         },
         errorMessage: null
     };
@@ -106,7 +106,7 @@ export default class RegisterScreen extends React.Component {
                             value={this.state.user.password}
                         ></TextInput>
 
-                    <Text style={styles.inputTitle}>Access Code to the property</Text>
+                    {/* <Text style={styles.inputTitle}>Access Code to the property</Text>
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
@@ -121,7 +121,7 @@ export default class RegisterScreen extends React.Component {
                             multiline = {true}
                             onChangeText={accessInstructions => this.setState({ user: { ...this.state.user, accessInstructions } })}
                             value={this.state.user.accessInstructions}
-                        ></TextInput>
+                        ></TextInput> */}
                     
 
                 </View>
