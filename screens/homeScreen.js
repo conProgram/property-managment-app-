@@ -64,6 +64,13 @@ export default class homeScreen extends React.Component {
                     
                 </View>
 
+                <View style={{alignItems: "center", marginTop: 10}} > 
+                  <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Your access code is: </Text>
+                <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 20 }}>{this.state.user.accessCode}  </Text> 
+                
+
+                  </View>
+
                 <View style={styles.button}>
                 <Button title='Log Out' color= "#717eb6"
                 onPress={() => {
@@ -139,7 +146,7 @@ const styles = StyleSheet.create({
             shadowColor: 'black',
             shadowOpacity: 0.4,
             fontSize: 50,
-            marginTop: 80,
+            marginTop: 30,
             
             
         },}
