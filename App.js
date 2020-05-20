@@ -4,6 +4,7 @@ import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs"; 
 import { Ionicons } from "@expo/vector-icons";
+
 import LoadingScreen from "./screens/LoadingScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -20,6 +21,10 @@ import ownerChat from "./screens/ownerChat";
 import acControls from "./screens/acControls";
 
 
+import screen from "./screens/screen";
+import swiper from "./screens/swiper";
+
+
 
 const AppNavigator = createStackNavigator({
         poolControls: {
@@ -34,7 +39,24 @@ const AppNavigator = createStackNavigator({
         acControls:{
             screen: acControls
         }
-})
+});
+
+const intructionsScroller =  createStackNavigator({
+    screen:{
+        screen:screen,
+        navigationOptions:{
+            title: "screen"
+        }
+    },
+    swiper: {
+        screen:swiper,
+        navigationOptions:{
+            title:"swiper"
+        }
+    },
+});
+
+
 
 
 
@@ -90,6 +112,8 @@ const AppContainer = createStackNavigator(
            
 
         },
+        
+
         {
             defaultNavigationOptions: {
                 tabBarOnPress: ({ navigation, defaultHandler }) => {
@@ -134,6 +158,7 @@ export default createAppContainer(
         {
             Loading: LoadingScreen,
             App: AppContainer,
+            inst: intructionsScroller,
             nav: AppNavigator,
             Auth: AuthStack
         },

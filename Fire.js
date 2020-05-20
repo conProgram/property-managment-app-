@@ -72,7 +72,7 @@ class Fire {
 
     createUser = async user => {
         let remoteUri = null;
-        console.log(user.accessCode, user.accessInstructions);
+        //console.log(user.accessCode, user.accessInstructions);
         try {
             await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
 
@@ -97,6 +97,8 @@ class Fire {
             alert("Create user error in firebase", error);
         }
     };
+
+    
 
     
     signOut = () => {

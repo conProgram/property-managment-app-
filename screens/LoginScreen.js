@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 import Animated, { Easing } from 'react-native-reanimated'; //External libarys used 
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
 
-
+import screen from "./screen"
 
 const { width, height } = Dimensions.get('window');
 
@@ -196,7 +196,7 @@ export default class LoginScreen extends React.Component {
               }}
             >
   
-              <Button title='Do you own a property ?' color='black' onPress={() => this.props.navigation.navigate("Register")} />
+              <Button title='Do you own a property ?' color='black' onPress={() => this.props.navigation.navigate("screen")} />
             </Animated.View>
          
             <Animated.View style={{

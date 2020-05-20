@@ -18,10 +18,10 @@ export default class LoadingScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.loadingBox}>
                  
-                <Text>Loading</Text>
-                <ActivityIndicator size="large"></ActivityIndicator>
+                <Text style={styles.loadingText}>Loading VillaMate ... </Text>
+                <ActivityIndicator size="large" color= "#2a3550"></ActivityIndicator>
                 
             </View>
         );
@@ -33,5 +33,18 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
+    loadingBox:{
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+		backgroundColor: "#93A1DF"
+		
+	},
+	loadingText:{
+		paddingBottom: 30,
+		color: "#2a3550",
+		fontSize: 15,
+		fontWeight: "bold"
+	}
 });
