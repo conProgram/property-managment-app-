@@ -17,7 +17,6 @@ import WeatherApi from "./screens/WeatherApi";
 
 import poolControls from "./screens/poolControls";
 import maintenceLog from "./screens/maintenceLog";
-import ownerChat from "./screens/ownerChat";
 import acControls from "./screens/acControls";
 import maintencePost from "./screens/maintencePost";
 
@@ -26,7 +25,8 @@ import screen from "./screens/screen";
 import swiper from "./screens/swiper";
 
 import Chat from "./screens/Chat";
-import loginChat from "./screens/loginChat";
+import loginChat from "./screens/loginChat"
+
 
 
 const AppNavigator = createStackNavigator({
@@ -39,14 +39,14 @@ const AppNavigator = createStackNavigator({
         maintencePost: {
             screen: maintencePost
         },
-        ownerChat:{
-            screen: ownerChat
-        },
         acControls:{
             screen: acControls
         },
         upload: {
             screen: upload
+        },
+        Chat:{
+            screen: Chat
         }
 });
 
@@ -65,18 +65,6 @@ const intructionsScroller =  createStackNavigator({
     },
 });
 
-const chatNav = createStackNavigator({
-    Chat: {
-        screen: Chat
-    },
-    loginChat:{
-        screen: loginChat
-    },
-});
-
-
-
-
 
 const AppContainer = createStackNavigator(
     
@@ -91,7 +79,7 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-book" size={24} color={tintColor} />
                 }
             },
-            loginChat: {
+            loginChat : {
                 screen: loginChat,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
@@ -187,7 +175,7 @@ export default createAppContainer(
             nav: AppNavigator,
             Auth: AuthStack,
             inst: intructionsScroller,
-            chatNav
+            
         },
         {
             initialRouteName: "Loading"
