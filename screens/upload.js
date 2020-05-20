@@ -11,6 +11,7 @@ require("firebase/firestore");
 
 export default class upload extends React.Component {
     state = {
+        postName: "",
         text: "",
         image: "../assets/lez.jpg",
         name: "",
@@ -37,7 +38,7 @@ export default class upload extends React.Component {
 
     handlePost = () => {
         Fire.shared
-            .addPost({ text: this.state.text.trim(), localUri: this.state.image, user: this.state.user })
+            .addPost({postName: this.state.postName.trim(), text: this.state.text.trim(), localUri: this.state.image, user: this.state.user })
             .then(ref => {
                 this.setState({ text: "", image: "../assets/lez.jpg" });
                 this.props.navigation.goBack();
@@ -67,20 +68,20 @@ export default class upload extends React.Component {
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                         <Ionicons name="md-arrow-back" size={24} color="#000000"></Ionicons>
                     </TouchableOpacity>
+                    
                     <TouchableOpacity onPress={this.handlePost}>
                         <Text style={{fontSize: 20,
-        fontWeight: "500",
-        color: "#fff",
-        alignItems: 'center',
-        justifyContent: 'center'}}>Upload</Text>
+                            fontWeight: "500",
+                        color: "#fff",
+                            alignItems: 'center',
+                            justifyContent: 'center'}}>Upload</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Image source={require("../assets/VillaMate.png")} style={styles.avatar}></Image>
+                    {/* <Image source={require("../assets/VillaMate.png")} style={styles.avatar}></Image>  */}
                     {/* <Image source={this.state.user.avatar ? { uri: this.state.user.avatar } : require("")} style={styles.avatar} </Image> */}
-                    <TextInput
-                        
+                    {/* <TextInput
                         multiline={true}
                         numberOfLines={4}
                         style={styles.inputText}
@@ -89,7 +90,43 @@ export default class upload extends React.Component {
                         onChangeText={text => this.setState({ text })}
                         value={this.state.text}
                     ></TextInput>
+                    </View>
+                    <View>
+                     <TextInput
+                        multiline={true}
+                        numberOfLines={4}
+                        style={styles.inputText}
+                        placeholder="What is your name"
+                        placeholderTextColor= "#e3075b"
+                        onChangeText={postName => this.setState({ postName })}
+                        value={this.state.postName}
+                    ></TextInput> */}
                 </View>
+
+                <View style={styles.form}>
+                    
+                        <Text style={styles.inputTitle}> Your post description </Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholderTextColor = "#d48e15"
+                            placeholder = "For example 'Got to try the golf at sunset' "
+                            multiline={true}
+                            numberOfLines={4}
+                            onChangeText={text => console.log(text)}
+                            onChangeText={text => this.setState({ text })}
+                            value={this.state.text}
+                        ></TextInput>
+                    
+                        <Text style={styles.inputTitle}>Your name ?</Text>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={postName => console.log(postName)}
+                            onChangeText={postName => this.setState({ postName })}
+                            value={this.state.postName}
+                        ></TextInput> 
+                        </View>
+
 
                 <TouchableOpacity style={styles.photo} onPress={this.pickImage}>
                     <Ionicons name="md-camera" size={32} color="#000000"></Ionicons>
@@ -151,5 +188,23 @@ const styles = StyleSheet.create({
         alignItems: "flex-end",
         marginHorizontal: 32,
         
-    }
+    },
+    form: {
+        marginBottom: 48,
+        marginHorizontal: 30
+    },
+    inputTitle: {
+        color: "#ffffff",
+        fontSize: 17,
+        textTransform: "uppercase",
+        fontWeight: '700'
+    },
+    input: {
+        borderBottomColor: "#ffffff",
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        height: 40,
+        fontSize: 15,
+        color: "#d48e15"
+       
+    },
 });

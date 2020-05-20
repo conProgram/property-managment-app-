@@ -25,6 +25,8 @@ import maintencePost from "./screens/maintencePost";
 import screen from "./screens/screen";
 import swiper from "./screens/swiper";
 
+import Chat from "./screens/Chat";
+import loginChat from "./screens/loginChat";
 
 
 const AppNavigator = createStackNavigator({
@@ -60,6 +62,15 @@ const intructionsScroller =  createStackNavigator({
     },
 });
 
+const chatNav = createStackNavigator({
+    Chat: {
+        screen: Chat
+    },
+    loginChat:{
+        screen: loginChat
+    },
+});
+
 
 
 
@@ -77,8 +88,8 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-book" size={24} color={tintColor} />
                 }
             },
-            upload: {
-                screen: upload,
+            loginChat: {
+                screen: loginChat,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
                 }
@@ -157,7 +168,7 @@ const AuthStack = createStackNavigator({
     Login: LoginScreen,
     Register: RegisterScreen
 });
-
+ 
 export default createAppContainer(
     createSwitchNavigator(
         {
@@ -166,6 +177,7 @@ export default createAppContainer(
             nav: AppNavigator,
             Auth: AuthStack,
             inst: intructionsScroller,
+            chatNav
         },
         {
             initialRouteName: "Loading"

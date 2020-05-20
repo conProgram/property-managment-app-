@@ -66,7 +66,7 @@ export default class recommendations extends React.Component {
                     <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                         <View>
                             {/* <Text style={styles.name}>{post.user.name}</Text> */}
-                            <Text style={styles.name}>{post.user.email} </Text>
+                            <Text style={styles.name}>{post.postName} </Text>
 
                             <Text style={styles.timestamp}>{moment(post.timestamp).fromNow()}</Text>
                         </View>
@@ -87,9 +87,16 @@ export default class recommendations extends React.Component {
                 
                 <View style={styles.header}>
                     <Text style={styles.headerTitle}>Log Book</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("upload")}>
+                        <Text style={{fontSize: 20,
+                        fontWeight: "500",
+                        color: "#fff",
+                        }}>Upload a post</Text>
+                    </TouchableOpacity>
                     
 
                 </View>
+                
                 <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 
                 <FlatList
                 
