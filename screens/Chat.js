@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, KeyboardAvoidingView, SafeAreaView, FlatList } from "react-native";
+import { Platform, KeyboardAvoidingView, SafeAreaView, FlatList, Text } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 import Fire from "../Fire";
 
@@ -18,7 +18,7 @@ get user() {
 }
 
 componentDidMount() {
-    Fire.get(message =>
+    Fire.shared.getMessages(message =>
         this.setState(previous => ({
             messages: GiftedChat.append(previous.messages, message)
         }))
@@ -38,7 +38,8 @@ render() {
 
     return(
 
-     <SafeAreaView style={{ flex: 1 }}> {chat} </SafeAreaView>
+      //<SafeAreaView style={{ flex: 1 }}> {chat} </SafeAreaView>
+      <Text>hi</Text>
      
      );
 }

@@ -148,7 +148,7 @@ class Fire {
         };
     };
 
-    get = callback => {
+    getMessages = callback => {
         this.db.on("child_added", snapshot => callback(this.parse(snapshot)));
     };
 
