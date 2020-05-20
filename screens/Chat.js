@@ -3,6 +3,7 @@ import { Platform, KeyboardAvoidingView, SafeAreaView } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 
 import Fire from "../chatFire";
+import { FlatList } from "react-native-gesture-handler";
 
 export default class Chat extends React.Component {
     state = {
@@ -39,6 +40,6 @@ export default class Chat extends React.Component {
             );
         }
 
-        return <SafeAreaView style={{ flex: 1 }}>{chat}</SafeAreaView>;
+        return <FlatList style={{ flex: 1 }}>{chat}</FlatList>;
     }
 }

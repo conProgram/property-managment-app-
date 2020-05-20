@@ -1,6 +1,7 @@
 import firebase from "firebase";
 
-class Fire {
+
+class Fire{
     constructor() {
         this.init();
         this.checkAuth();
@@ -40,6 +41,7 @@ class Fire {
             this.db.push(message);
         });
     };
+    
 
     parse = message => {
         const { user, text, timestamp } = message.val();
