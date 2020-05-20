@@ -19,6 +19,7 @@ import poolControls from "./screens/poolControls";
 import maintenceLog from "./screens/maintenceLog";
 import ownerChat from "./screens/ownerChat";
 import acControls from "./screens/acControls";
+import maintencePost from "./screens/maintencePost";
 
 
 import screen from "./screens/screen";
@@ -32,6 +33,9 @@ const AppNavigator = createStackNavigator({
         },
         maintenceLog:{
             screen: maintenceLog
+        },
+        maintencePost: {
+            screen: maintencePost
         },
         ownerChat:{
             screen: ownerChat
@@ -139,7 +143,8 @@ const AppContainer = createStackNavigator(
 ),
 
 postModal: {
-    screen: upload}
+    screen: upload,
+    screen: maintencePost}
 },
 {
     mode: "modal",
@@ -158,9 +163,9 @@ export default createAppContainer(
         {
             Loading: LoadingScreen,
             App: AppContainer,
-            inst: intructionsScroller,
             nav: AppNavigator,
-            Auth: AuthStack
+            Auth: AuthStack,
+            inst: intructionsScroller,
         },
         {
             initialRouteName: "Loading"

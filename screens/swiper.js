@@ -47,14 +47,12 @@ export default class OnboardingScreens extends Component {
     // Do not adjust content behind nav-, tab- or toolbars automatically
     automaticallyAdjustContentInsets: false,
     // Fisrt is screen is active
-    index: 0
+    index: 0 //Counter for how many screens have been passed 
   };
 
   state = this.initState(this.props);
 
-  /**
-       * Initialize the state
-       */
+  
   initState(props) {
     // Get the total number of slides passed as children
     const total = props.children ? props.children.length || 1 : 0,
@@ -326,6 +324,7 @@ const styles = StyleSheet.create({
   activeDot: {
     backgroundColor: "#FFFFFF"
   },
+  
   // Button wrapper
   buttonWrapper: {
     backgroundColor: "transparent",
