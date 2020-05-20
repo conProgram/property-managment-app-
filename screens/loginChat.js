@@ -25,7 +25,7 @@ export default class loginChat extends React.Component {
                     <Text style={styles.header}>Username</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="DesignIntoCode"
+                        placeholder="Your name"
                         onChangeText={name => {
                             this.setState({ name });
                         }}

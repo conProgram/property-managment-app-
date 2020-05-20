@@ -44,6 +44,9 @@ const AppNavigator = createStackNavigator({
         },
         acControls:{
             screen: acControls
+        },
+        upload: {
+            screen: upload
         }
 });
 
@@ -154,8 +157,15 @@ const AppContainer = createStackNavigator(
 ),
 
 postModal: {
-    screen: upload,
     screen: maintencePost}
+},
+{
+    mode: "modal",
+headerMode: "none"
+,
+
+postModalTwo : {
+    screen: upload}
 },
 {
     mode: "modal",

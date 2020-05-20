@@ -5,11 +5,19 @@ import * as Permissions from "expo-permissions";
 import { Ionicons } from "@expo/vector-icons";
 import Fire from "../Fire";
 import * as ImagePicker from "expo-image-picker";
+import ImageLoad from 'react-native-image-placeholder';
+import DoneButton from 'react-native-keyboard-done-button';
 
 const firebase = require("firebase");
 require("firebase/firestore");
 
+var photoLoaded = false;
+
 export default class upload extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+    
     state = {
         postName: "",
         text: "",
@@ -61,11 +69,12 @@ export default class upload extends React.Component {
     };
 
     render() {
-        return (
+            return (
+                
             <SafeAreaView style={styles.container}>
                 <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >  
                 <View style={styles.header}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("recommendations")}>
                         <Ionicons name="md-arrow-back" size={24} color="#000000"></Ionicons>
                     </TouchableOpacity>
                     
@@ -77,64 +86,54 @@ export default class upload extends React.Component {
                             justifyContent: 'center'}}>Upload</Text>
                     </TouchableOpacity>
                 </View>
-
-                <View style={styles.inputContainer}>
-                    {/* <Image source={require("../assets/VillaMate.png")} style={styles.avatar}></Image>  */}
-                    {/* <Image source={this.state.user.avatar ? { uri: this.state.user.avatar } : require("")} style={styles.avatar} </Image> */}
-                    {/* <TextInput
-                        multiline={true}
-                        numberOfLines={4}
-                        style={styles.inputText}
-                        placeholder="Upload a post to this property's Log Book "
-                        placeholderTextColor= "#e3075b"
-                        onChangeText={text => this.setState({ text })}
-                        value={this.state.text}
-                    ></TextInput>
-                    </View>
-                    <View>
-                     <TextInput
-                        multiline={true}
-                        numberOfLines={4}
-                        style={styles.inputText}
-                        placeholder="What is your name"
-                        placeholderTextColor= "#e3075b"
-                        onChangeText={postName => this.setState({ postName })}
-                        value={this.state.postName}
-                    ></TextInput> */}
-                </View>
+                            
 
                 <View style={styles.form}>
                     
+
+                <Text style={styles.inputTitle}>Name:</Text>
+                        <TextInput
+                            style={styles.input}
+                            autoCapitalize="none"
+                            placeholderTextColor = "#d48e15"
+                            placeholder = "e.g. John Smith"
+                            backgroundColor = "#d8e4fe70"
+                            onChangeText={postName => console.log(postName)}
+                            onChangeText={postName => this.setState({ postName })}
+                            value={this.state.postName}
+                        ></TextInput>    
+                        </View>
+                        <View style={styles.form}>
                         <Text style={styles.inputTitle}> Your post description </Text>
                         <TextInput
                             style={styles.input}
                             placeholderTextColor = "#d48e15"
                             placeholder = "For example 'Got to try the golf at sunset' "
+                            backgroundColor = "#d8e4fe70"
                             multiline={true}
                             numberOfLines={4}
                             onChangeText={text => console.log(text)}
                             onChangeText={text => this.setState({ text })}
                             value={this.state.text}
                         ></TextInput>
-                    
-                        <Text style={styles.inputTitle}>Your name ?</Text>
-                        <TextInput
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={postName => console.log(postName)}
-                            onChangeText={postName => this.setState({ postName })}
-                            value={this.state.postName}
-                        ></TextInput> 
+                        <TouchableOpacity style={styles.button}  onPress={this.pickImage}>
+                        <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Click to choose a photo</Text>
+                        </TouchableOpacity>
+                        
+                        <View style={{ marginHorizontal: 32, marginTop: 32, height: 300}}>
+                        <Image source={{ uri: this.state.image }} style={{ width: "100%", height: "100%"}}></Image>
                         </View>
-
-
-                <TouchableOpacity style={styles.photo} onPress={this.pickImage}>
-                    <Ionicons name="md-camera" size={32} color="#000000"></Ionicons>
-                </TouchableOpacity>
-
-                <View style={{ marginHorizontal: 32, marginTop: 32, height: 300}}>
-                    <Image source={{ uri: this.state.image }} style={{ width: "100%", height: "100%" }}></Image>
-                </View>
+                        
+                        
+                        
+                        
+                    
+                        
+                        </View>
+                        <View>
+                
+              </View> 
+                
                 </ImageBackground>
             </SafeAreaView>
         );
@@ -171,11 +170,12 @@ const styles = StyleSheet.create({
     },
 
     inputText: {
-        
-        margin: 32,
-        flexDirection: "row",
+        paddingTop: 30,
+        margin: 100,
+        //flexDirection: "row",
         color:"#e3075b", 
-        fontWeight:"300"  
+        fontWeight:"300",
+         
           
     },
     avatar: {
@@ -189,7 +189,28 @@ const styles = StyleSheet.create({
         marginHorizontal: 32,
         
     },
+    button: {
+        backgroundColor: '#d8e4fe70',
+        height: 50,
+        
+        alignSelf: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
+        fontSize: 50,
+        marginTop: 50,
+        marginBottom: 40
+        
+        
+    },
     form: {
+        marginTop: 20,
         marginBottom: 48,
         marginHorizontal: 30
     },
