@@ -53,6 +53,26 @@ class Fire {
         });
     };
 
+    addMessage = async ({ text, localUri, user }) => {
+        console.log(this.text, this.timestamp, this.user);
+        
+        return new Promise((res, rej) => {
+            this.firestore
+                .collection("messages")
+                .add({
+                    text,
+                    timestamp: this.timestamp,
+                    user
+                })
+                .then(ref => {
+                    res(ref);
+                })
+                .catch(error => {
+                    rej(error);
+                });
+        });
+    };
+
 
 
     uploadPhotoAsync = (uri, filename) => {
@@ -122,43 +142,14 @@ class Fire {
     };    
 
 
-    //CHAT SECTION 
-    send = messages => {
-        messages.forEach(item => {
-            const message = {
-                text: item.text,
-                timestamp: firebase.database.ServerValue.TIMESTAMP,
-                user: item.user
-            };
 
-            this.db.push(message);
-        });
-    };
+    
+    //Chat App
+    
 
-    parse = message => {
-        const { user, text, timestamp } = message.val();
-        const { key: _id } = message;
-        const createdAt = new Date(timestamp);
-
-        return {
-            _id,
-            createdAt,
-            text,
-            user
-        };
-    };
-
-    getMessages = callback => {
-        this.db.on("child_added", snapshot => callback(this.parse(snapshot)));
-    };
-
-    off() {
-        this.db.off();
-    }
-
-    get db() {
-        return firebase.database().ref("messages");
-    }
+      
+    
+    //get methods used to return specific data 
 
     signOut = () => {
         firebase.auth().signOut();

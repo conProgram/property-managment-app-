@@ -25,7 +25,7 @@ import screen from "./screens/screen";
 import swiper from "./screens/swiper";
 
 import Chat from "./screens/Chat";
-import loginChat from "./screens/loginChat"
+
 
 
 
@@ -44,10 +44,8 @@ const AppNavigator = createStackNavigator({
         },
         upload: {
             screen: upload
-        },
-        Chat:{
-            screen: Chat
         }
+        
 });
 
 const intructionsScroller =  createStackNavigator({
@@ -79,8 +77,8 @@ const AppContainer = createStackNavigator(
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-book" size={24} color={tintColor} />
                 }
             },
-            loginChat : {
-                screen: loginChat,
+            Chat : {
+                screen: Chat,
                 navigationOptions: {
                     tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
                 }

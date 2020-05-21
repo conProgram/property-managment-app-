@@ -5,8 +5,7 @@ import * as Permissions from "expo-permissions";
 import { Ionicons } from "@expo/vector-icons";
 import Fire from "../Fire";
 import * as ImagePicker from "expo-image-picker";
-import ImageLoad from 'react-native-image-placeholder';
-import DoneButton from 'react-native-keyboard-done-button';
+
 
 const firebase = require("firebase");
 require("firebase/firestore");
