@@ -6,20 +6,6 @@ import firebase from "firebase";
 import Fire from "../Fire";
 
 
-// temporary data until we pull from Firebase
-// posts = [
-//     {
-//         id: "1",
-//         name: "Joe McKay",
-//         text:
-//             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//         timestamp: 1569109273726,
-//         avatar: require("../assets/lez.jpg"),
-//         image: require("../assets/saz.jpg")
-//     },
-// ];
-
-
 export default class recommendations extends React.Component {
 
     state = {

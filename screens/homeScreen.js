@@ -60,15 +60,11 @@ export default class homeScreen extends React.Component {
                         style={styles.avatar}
                     />
                     
-
-                    
                 </View>
 
                 <View style={{alignItems: "center", marginTop: 10}} > 
                   <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Your access code is: </Text>
                 <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 20 }}>{this.state.user.accessCode}  </Text> 
-                
-
                   </View>
 
                 <View style={styles.button}>

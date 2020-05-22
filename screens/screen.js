@@ -29,25 +29,30 @@ export default class screen extends Component {
         <Ionicons name="ios-arrow-round-back" size={40} color="#FFF"></Ionicons>
         </TouchableOpacity>
           <Icon name="ios-home" {...iconStyles} />
-          <Text style={styles.header}>one</Text>
-          <Text style={styles.text}>one</Text>
+          <Text style={styles.header}>Welcome to VillaMate</Text>
+          <Text style={styles.text}>Want to make renting easier ?</Text>
         </View>
 
 
         {/* Second screen */}
         <View style={styles.slide}>
           <Icon name="ios-people" {...iconStyles} />
-          <Text style={styles.header}>two</Text>
-          <Text style={styles.text}>two</Text>
+          <Text style={styles.header}>What Villa mate offers </Text>
+          <Text style={styles.text}> 1 . Live chat between you and your guests </Text>
+          <Text style={styles.text}> 2 . Log book from previous guest reccomendations </Text>
+          <Text style={styles.text}> 3 . Weather forecast based on your geo-location </Text>
+          <Text style={styles.text}> 4 . Maitence Log you can view to see if anything needs fixing in your property </Text>
+          <Text style={styles.text}> 5 . Amenity Controls for your property </Text>
         </View>
 
 
 
         {/* Third screen */}
         <View style={styles.slide}>
-          <Icon name="ios-videocam" {...iconStyles} />
-          <Text style={styles.header}>three</Text>
-          <Text style={styles.text}>three</Text>
+          <Icon name="ios-happy" {...iconStyles} />
+          <Text style={styles.header}>How does a guest log in ?</Text>
+          <Text style={styles.text}> 1. You will provide the guest with a email and password to login to your app</Text>
+          <Text style={styles.text}> 2. The guests will then be shown a unique app specific to your property</Text>
         </View>
       </Swiper>
     );
