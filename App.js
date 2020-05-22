@@ -80,7 +80,7 @@ const AppContainer = createStackNavigator(
             Chat : {
                 screen: Chat,
                 navigationOptions: {
-                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-image" size={24} color={tintColor} />
+                    tabBarIcon: ({ tintColor }) => <Ionicons name="ios-chatbubbles" size={24} color={tintColor} />
                 }
             },
             homeScreen: {
@@ -143,21 +143,15 @@ const AppContainer = createStackNavigator(
 ),
 
 postModal: {
-    screen: maintencePost}
-},
-{
-    mode: "modal",
-headerMode: "none"
-,
-
-postModalTwo : {
+    screen: maintencePost,
     screen: upload}
 },
 {
     mode: "modal",
 headerMode: "none"
+},
 
-})
+)
 
 
 const AuthStack = createStackNavigator({

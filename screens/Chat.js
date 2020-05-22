@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, FlatList, ImageBackground, ActivityIndicator, TouchableOpacity, TextInput, Keyboard } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList, ImageBackground, ActivityIndicator, TouchableOpacity, TextInput, Keyboard, KeyboardAvoidingView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import moment from "moment";
 import firebase from "firebase";
@@ -86,18 +86,28 @@ export default class Chat extends React.Component {
                 
                 <View style={styles.header}>
                     <Text style={styles.headerTitle}>Owner Live chat</Text>
-
-                   
-                    
-
                 </View>
 
-                <View style={styles.form}>
+               
+                <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'flex-end', }} behavior="padding" enabled>
+
+                <FlatList
+                
+                    style={styles.feed}
+                    data={this.state.posts}
+                    renderItem={({ item }) => this.renderPost(item)} //Rendering the items from the post array
+                    keyExtractor={(_, index) => index.toString()} //Gives each post a unique key
+                    showsVerticalScrollIndicator={false}
+                >
+
+                </FlatList>
+            
+            <View style={styles.form}>
                         <Text style={styles.inputTitle}> Send a message to the owner</Text>
                         <TextInput
                             style={styles.input}
-                            placeholderTextColor = "#d48e15"
-                            placeholder = "e.g What is the wifi Password ?"
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "e.g ''What is the wifi password?''"
                             backgroundColor = "#d8e4fe70"
                             multiline={true}
                             numberOfLines={4}
@@ -106,25 +116,13 @@ export default class Chat extends React.Component {
                             value={this.state.text}
                         ></TextInput>
                         <TouchableOpacity onPress={this.handlePost}>
-                        <Text style={styles.button}>Send</Text>
+                        <Text style={styles.button}>SEND</Text>
                     </TouchableOpacity>
             </View>
-                
-                <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 
-                <FlatList
-                
-                    style={styles.feed}
-                    data={this.state.posts}
-                    renderItem={({ item }) => this.renderPost(item)} //Rendering the items from the post array
-                    keyExtractor={(_, index) => index.toString()} //Gives each post a unique key
-                    showsVerticalScrollIndicator={false}
-                ></FlatList>
-                
-                
-              
-              
-            </ImageBackground>
+            </KeyboardAvoidingView>
             </View>
+
+            
             
             
         );
@@ -139,6 +137,7 @@ export default class Chat extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#CFDEFF"
         
        
     },
@@ -224,18 +223,20 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 2, height: 2 },
       shadowColor: 'black',
       shadowOpacity: 0.4,
-      fontSize: 50,
-      marginTop: 50,
-      marginBottom: 40
+      fontSize: 30,
+      marginBottom: 40,
+      color: "#435480",
+      width: 200,
+      textAlign: "center"
+      
       
       
   },
   form: {
-      marginTop: 20,
       marginHorizontal: 30
   },
   inputTitle: {
-      color: "#d48e15",
+      color: "#435480",
       fontSize: 17,
       textTransform: "uppercase",
       fontWeight: '700'
@@ -245,7 +246,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: StyleSheet.hairlineWidth,
       height: 40,
       fontSize: 15,
-      color: "#d48e15"
+      color: "#435480"
      
   },
   

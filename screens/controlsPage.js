@@ -11,21 +11,20 @@ export default class controlsPage extends React.Component {
            
             
             <View style={styles.container}>
-            <ImageBackground source={require("../assets/VillaMate.png")} style={{width: '100%', height: '100%'}} >
+            <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >
+            <Text style={styles.greeting}>{`CONTROLS\n`}</Text>
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("poolControls")}>
-            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Pool Controls</Text>
+            <Text style={styles.controlButton}>Pool Controls</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("acControls")}>
-            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>A/C Controls</Text>
+            <Text style={styles.controlButton}>A/C Controls</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("maintenceLog")}>
-            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>maintence Log</Text>
+            <Text style={styles.controlButton}>Maintenance Log</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("ownerChat")}>
-            <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Live chat page</Text>
-            </TouchableOpacity>
-            <View style={styles.button}>
-                <Button title='Log Out' color= "#717eb6"
+            
+            <View style={styles.logoutButton}>
+                <Button title='LOG OUT' color= "#717eb6"
                 onPress={() => {
                         Fire.shared.signOut();
                     }} />
@@ -48,7 +47,6 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#d8e4fe70',
         height: 50,
-        width: 170,
         marginHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center',
@@ -64,6 +62,40 @@ const styles = StyleSheet.create({
         
         
     },
+    greeting: {
+        marginTop: 100,
+        fontSize: 30,
+        fontWeight: "500",
+        textAlign: "center",
+        color: "#435480",
+        marginBottom: -30,
+        marginHorizontal: 20,
+        marginVertical: 50
+    },
+    controlButton:{
+        color: "#FFF", 
+        fontWeight: "500", 
+        fontSize: 25 
+    },
+    logoutButton: {
+        backgroundColor: '#d8e4fe70',
+        height: 50,
+        marginHorizontal: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 5,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowOffset: { width: 2, height: 2 },
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
+        fontSize: 50,
+        marginTop: 80,
+        
+        
+    },
+
     backgroundImage: {
             
         alignItems: "center",

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image, ImageBackground, KeyboardAvoidingView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, TextInput, Image, ImageBackground, KeyboardAvoidingView,Keyboard } from "react-native";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { Ionicons } from "@expo/vector-icons";
@@ -48,7 +48,8 @@ export default class upload extends React.Component {
             .addPost({postName: this.state.postName.trim(), text: this.state.text.trim(), localUri: this.state.image, user: this.state.user })
             .then(ref => {
                 this.setState({ text: "", image: "../assets/lez.jpg" });
-                this.props.navigation.goBack();
+                Keyboard.dismiss();
+                this.props.navigation.navigate("recommendations");
             })
             .catch(error => {
                 alert(error);
@@ -66,6 +67,7 @@ export default class upload extends React.Component {
             this.setState({ image: result.uri });
         }
     };
+    
 
     render() {
             return (
@@ -85,7 +87,11 @@ export default class upload extends React.Component {
                             justifyContent: 'center'}}>Upload</Text>
                     </TouchableOpacity>
                 </View>
-                            
+                
+                <View>
+                <Text style={styles.greeting}>{`UPLOAD A POST TO THE LOG BOOK\n`}</Text>
+                
+                </View>
 
                 <View style={styles.form}>
                     
@@ -94,8 +100,8 @@ export default class upload extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            placeholderTextColor = "#d48e15"
-                            placeholder = "e.g. John Smith"
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "E.g. ''John Smith'' "
                             backgroundColor = "#d8e4fe70"
                             onChangeText={postName => console.log(postName)}
                             onChangeText={postName => this.setState({ postName })}
@@ -106,8 +112,8 @@ export default class upload extends React.Component {
                         <Text style={styles.inputTitle}> Your post description </Text>
                         <TextInput
                             style={styles.input}
-                            placeholderTextColor = "#d48e15"
-                            placeholder = "For example 'Got to try the golf at sunset' "
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "E.g ''Got to try the golf at sunset'' "
                             backgroundColor = "#d8e4fe70"
                             multiline={true}
                             numberOfLines={4}
@@ -129,9 +135,7 @@ export default class upload extends React.Component {
                     
                         
                         </View>
-                        <View>
-                
-              </View> 
+                        
                 
                 </ImageBackground>
             </SafeAreaView>
@@ -155,7 +159,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 30,
         fontWeight: "500",
-        color: "#fff",
+        color: "#556ca3",
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -163,7 +167,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF50",
         margin: 32,
         flexDirection: "row",
-        color:"#e3075b", 
+        color:"#556ca3", 
         fontWeight:"300"  
           
     },
@@ -172,10 +176,20 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         margin: 100,
         //flexDirection: "row",
-        color:"#e3075b", 
+        color:"#556ca3", 
         fontWeight:"300",
          
           
+    },
+    greeting: {
+        marginTop: 50,
+        fontSize: 30,
+        fontWeight: "500",
+        textAlign: "center",
+        color: "#435480",
+        marginBottom: -30,
+        marginHorizontal: 20,
+        marginVertical: 50
     },
     avatar: {
         width: 48,
@@ -204,27 +218,27 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         fontSize: 50,
         marginTop: 50,
-        marginBottom: 40
+        marginBottom: 20
         
         
     },
     form: {
         marginTop: 20,
-        marginBottom: 48,
+        marginBottom: 40,
         marginHorizontal: 30
     },
     inputTitle: {
-        color: "#ffffff",
+        color: "#435480",
         fontSize: 17,
         textTransform: "uppercase",
         fontWeight: '700'
     },
     input: {
-        borderBottomColor: "#ffffff",
+        borderBottomColor: "#435480",
         borderBottomWidth: StyleSheet.hairlineWidth,
-        height: 40,
+        height: 30,
         fontSize: 15,
-        color: "#d48e15"
+        color: "#556ca3"
        
     },
 });

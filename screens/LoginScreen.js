@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, StatusBar, LayoutAnimation, Image, Dimensions, Button, KeyboardAvoidingView } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground, StatusBar, LayoutAnimation, Image, Dimensions, Button, KeyboardAvoidingView, Keybaord } from "react-native";
 import * as firebase from "firebase";
 import Animated, { Easing } from 'react-native-reanimated'; //External libarys used 
 import { TapGestureHandler, State } from 'react-native-gesture-handler';
@@ -139,6 +139,10 @@ export default class LoginScreen extends React.Component {
         console.log(email);
         console.log(password);
   };
+
+  closeKeyboard = () => {
+    Keyboard.dismiss();
+  };
   
     
 
@@ -196,7 +200,7 @@ export default class LoginScreen extends React.Component {
               }}
             >
   
-              <Button title='Do you own a property ?' color='black' onPress={() => this.props.navigation.navigate("screen")} />
+              <Button title='Are you a property owner?' color='black' onPress={() => this.props.navigation.navigate("screen")} />
             </Animated.View>
          
             <Animated.View style={{
@@ -204,33 +208,35 @@ export default class LoginScreen extends React.Component {
               zIndex: this.TextInputZindex,
               opacity: this.textInputOpacity,
               transform: [{ translateY: this.TextInputY }],
-              height: height / 3, ...StyleSheet.absoluteFill, top: null, justifyContent: 'flex-end'
+              height: height / 3, ...StyleSheet.absoluteFill, top: null, justifyContent: 'flex-end',
+              backgroundColor: "#eeb1ca"
             }
             
             }>
                 
-              <TapGestureHandler onHandlerStateChange={this.onCloseState}>
-                <Animated.View style={styles.closeButton}>
-                  <Animated.Text style={{ fontSize: 15 }}> X </Animated.Text>
+              <TapGestureHandler onHandlerStateChange={this.onCloseState} >
+                <Animated.View style={styles.closeButton} >
+                  <Animated.Text style={{ fontSize: 15 }} > X </Animated.Text>
+                  
                 </Animated.View>
               </TapGestureHandler>
   
               
               
                         <TextInput
-                        placeholder="Villa Code"
+                        placeholder="Email"
                         style={styles.TextInput}
                              autoCapitalize="none"
                              onChangeText={email => this.setState({ email })}
                              value={this.state.email}
-                             placeholderTextColor="black"
+                             placeholderTextColor="white"
                          ></TextInput>
               
                        
                           <TextInput
                              placeholder="Password"
                              style={styles.TextInput}
-                             placeholderTextColor="black"
+                             placeholderTextColor="white"
                             secureTextEntry
                             autoCapitalize="none"
                             onChangeText={password => this.setState({ password })}
@@ -244,7 +250,7 @@ export default class LoginScreen extends React.Component {
                      onPress={() => this.handleLogin()}
                      
                  >
-                     <Text style={{ color: "#1eb375", fontSize: 20, fontWeight: "800" }}>
+                     <Text style={{ color: "white", fontSize: 20, fontWeight: "800" }}>
                          Sign in 
                     </Text>
                     
@@ -288,7 +294,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 30
     },
     inputTitle: {
-        color: "#72249c",
+        color: "white",
         fontSize: 17,
         textTransform: "uppercase",
         fontWeight: '700',
@@ -304,7 +310,7 @@ const styles = StyleSheet.create({
         color: "#07f00b"
     },
     button: {
-        backgroundColor: '#72249c',
+        backgroundColor: '#d8e4fe70',
         height: 70,
         marginHorizontal: 20,
         borderRadius: 35,
@@ -355,7 +361,6 @@ const styles = StyleSheet.create({
       width: 40,
       backgroundColor: 'white',
       borderRadius: 20,
-      backgroundColor: 'white',
       alignItems: 'center',
       justifyContent: 'center',
       position: 'absolute',
@@ -377,7 +382,7 @@ const styles = StyleSheet.create({
       paddingLeft: 10,
   
       marginVertical: 5,
-      borderColor: '#24fc03'
+      borderColor: 'white'
     }
   
 });

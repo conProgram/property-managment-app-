@@ -76,8 +76,8 @@ export default class recommendations extends React.Component {
                     <TouchableOpacity onPress={() => this.props.navigation.navigate("upload")}>
                         <Text style={{fontSize: 20,
                         fontWeight: "500",
-                        color: "#fff",
-                        }}>Upload a post</Text>
+                        color: "#435480",
+                        }}>Click HERE to upload a post</Text>
                     </TouchableOpacity>
                     
 

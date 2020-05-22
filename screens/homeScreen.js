@@ -43,13 +43,13 @@ export default class homeScreen extends React.Component {
             <View style={styles.container}>
                  <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >
 
-                  <View style={{alignItems: "center", marginTop: 100 }} > 
-                  <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Welcome to: </Text>
-                <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 20 }}>{this.state.user.name}  </Text> 
+                  <View style={{alignItems: "center", marginTop: 50 }} > 
+                  <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 10 }}>Welcome to: </Text>
+                <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 10 }}>{this.state.user.name}  </Text> 
 
                   </View>
                       
-            <View style={{ marginTop: 50, alignItems: "center" }}>
+            <View style={{ marginTop: 10, alignItems: "center" }}>
                 <View style={styles.avatarContainer}>
                     <Image
                         source={
@@ -63,8 +63,10 @@ export default class homeScreen extends React.Component {
                 </View>
 
                 <View style={{alignItems: "center", marginTop: 10}} > 
-                  <Text style={{ color: "#717eb6", fontSize: 20, fontWeight: "800", marginTop: 20 }}>Your access code is: </Text>
+                  <Text style={{ color: "#717eb6", fontSize: 25, fontWeight: "800", marginTop: 20 }}>Your access code is: </Text>
                 <Text style={{ color: "#4b5f90", fontSize: 30, fontWeight: "800", marginTop: 20 }}>{this.state.user.accessCode}  </Text> 
+                <Text style={{ color: "#717eb6", fontSize: 25, fontWeight: "800", marginTop: 20 }}>Access instructions:</Text>
+                <Text style={{ color: "#4b5f90", fontSize: 18, fontWeight: "800", marginTop: 20 }}>{this.state.user.accessInstructions}  </Text>
                   </View>
 
                 <View style={styles.button}>
@@ -145,7 +147,8 @@ const styles = StyleSheet.create({
             marginTop: 30,
             
             
-        },}
+        },
+        }
 
         
     

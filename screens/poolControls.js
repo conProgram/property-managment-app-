@@ -19,7 +19,7 @@ export default class poolControls extends React.Component {
            
             
             <View style={styles.container}>
-            <ImageBackground source={require("../assets/Message.png")} style={{width: '100%', height: '100%'}} >
+            <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >
 
             <View style={styles.header}>
 			<Text style={styles.headerTitle}>Pool Controls</Text>
@@ -45,19 +45,27 @@ export default class poolControls extends React.Component {
             </TouchableOpacity>
             
 
+            <View style={styles.sliderBox}>
+                
+            
+               
                 <Text style={styles.slider}>
-                    Pool temprature is : {this.state.sliderValue}
+                    Pool temperature: {this.state.sliderValue}°C
                 </Text>
 
-                 {/*Slider with max, min, step and initial value*/}
-                    <Slider
+                <View style={styles.sliderInsideTheBox}>
+            <Slider
+                    
                      maximumValue="40"
                      minimumValue="10"
                      step="1"
                     value={this.state.sliderValue}
                      onValueChange={sliderValue => this.setState({ sliderValue })}
          />      
-           
+            </View>
+
+                   
+           </View>
             
             </ImageBackground>
             
@@ -75,10 +83,9 @@ const styles = StyleSheet.create({
        
     },
     button: {
-        backgroundColor: '#72249c',
-        height: 70,
+        backgroundColor: '#d8e4fe70',
+        height: 50,
         marginHorizontal: 20,
-        borderRadius: 35,
         alignItems: 'center',
         justifyContent: 'center',
         marginVertical: 5,
@@ -89,24 +96,24 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 0.4,
         fontSize: 50,
-        marginTop: 100
+        marginTop: 80,
+        borderRadius: 35,
+        
     },
     slider: {
-        backgroundColor: '#72249c',
+        color: "#556ca3",
+        fontWeight: "bold",
         borderRadius: 35,
         alignItems: 'center',
         justifyContent: 'center',
         marginVertical: 5,
-        shadowOffset: { width: 2, height: 2 },
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
-        shadowOffset: { width: 2, height: 2 },
-        shadowColor: 'black',
-        shadowOpacity: 0.4,
-        fontSize: 20,
-        marginTop: 100,
+        fontSize: 22,
+        marginTop: 30,
         margin: 30,
-        fontWeight: "bold"
+        
+    },
+    sliderInsideTheBox:{
+        marginTop: 20
     },
     header: {
         paddingTop: 50,
@@ -127,7 +134,13 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: "#93A1DF"
         
-	},
+    },
+    sliderBox:{
+        marginTop: 80,
+        marginBottom: 48,
+        marginHorizontal: 30,
+        backgroundColor: "#d8e4fe70"
+    },
     backgroundImage: {
             
         alignItems: "center",

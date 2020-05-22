@@ -25,23 +25,24 @@ export default class screen extends Component {
       <Swiper navigation={this.props.navigation}>
         {/* First screen */}
         <View style={styles.slide}>
-        <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>           
+        <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.navigate("Login")}>           
         <Ionicons name="ios-arrow-round-back" size={40} color="#FFF"></Ionicons>
+
         </TouchableOpacity>
           <Icon name="ios-home" {...iconStyles} />
           <Text style={styles.header}>Welcome to VillaMate</Text>
-          <Text style={styles.text}>Want to make renting easier ?</Text>
+          <Text style={styles.text}>Want to make renting easier?</Text>
         </View>
 
 
         {/* Second screen */}
         <View style={styles.slide}>
           <Icon name="ios-people" {...iconStyles} />
-          <Text style={styles.header}>What Villa mate offers </Text>
+          <Text style={styles.header}>What VillaMate offers </Text>
           <Text style={styles.text}> 1 . Live chat between you and your guests </Text>
           <Text style={styles.text}> 2 . Log book from previous guest reccomendations </Text>
           <Text style={styles.text}> 3 . Weather forecast based on your geo-location </Text>
-          <Text style={styles.text}> 4 . Maitence Log you can view to see if anything needs fixing in your property </Text>
+          <Text style={styles.text}> 4 . Maintenance Log you can view to see if anything needs fixing in your property </Text>
           <Text style={styles.text}> 5 . Amenity Controls for your property </Text>
         </View>
 
@@ -50,8 +51,8 @@ export default class screen extends Component {
         {/* Third screen */}
         <View style={styles.slide}>
           <Icon name="ios-happy" {...iconStyles} />
-          <Text style={styles.header}>How does a guest log in ?</Text>
-          <Text style={styles.text}> 1. You will provide the guest with a email and password to login to your app</Text>
+          <Text style={styles.header}>How does a guest log in?</Text>
+          <Text style={styles.text}> 1. You will provide the guest with aN email and password to login to your app</Text>
           <Text style={styles.text}> 2. The guests will then be shown a unique app specific to your property</Text>
         </View>
       </Swiper>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     flex: 1, // Take up all screen
     justifyContent: "center", // Center vertically
     alignItems: "center", // Center horizontally
-    backgroundColor: "#16a085"
+    backgroundColor: "#93A1DF"
   },
   // Header styles
   header: {

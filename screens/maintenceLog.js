@@ -82,7 +82,7 @@ export default class maintenceLog extends React.Component {
                 </TouchableOpacity>
                     
                     <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("maintencePost")}>
-                    <Text style={{ color: "#FFF", fontWeight: "500", fontSize: 25 }}>Make a maintence request</Text>
+                    <Text style={{ color: "#556ca3", fontWeight: "500", fontSize: 20 }}>Click here to make a maintenance request</Text>
                     </TouchableOpacity>
                 </View>
                 <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} > 

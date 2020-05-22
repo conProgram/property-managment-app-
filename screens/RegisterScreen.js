@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar, ImageBackground, KeyboardAvoidingView } from "react-native";
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar, ImageBackground, KeyboardAvoidingView,Keyboard } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import UserPermissions from "../devicePermissions/UserPermissions";
 import * as ImagePicker from "expo-image-picker";
@@ -22,7 +22,9 @@ export default class RegisterScreen extends React.Component {
         errorMessage: null
     };
 
+
     handleSignUp = () => {
+        Keyboard.dismiss();
         Fire.shared.createUser(this.state.user);
         // console.log(this.state.user.name);
         // console.log(this.state.user.email);
@@ -49,8 +51,12 @@ export default class RegisterScreen extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'flex-end', }} behavior="padding" enabled>
-                <ImageBackground source={require("../assets/tempBg.png")} style={{width: '100%', height: '100%'}} >  
+                <ImageBackground source={require("../assets/plamBackground.png")} style={{width: '100%', height: '100%'}} >  
                 <KeyboardAvoidingView style={{ flex: 1, justifyContent: 'flex-end'}}>
+               
+                
+                <Text style={styles.greeting}>{`FIRST ADD A PHOTO OF YOUR PROPERTY HERE\n`}</Text>
+                
                 <TouchableOpacity style={styles.avatarPlaceholder} onPress={this.handlePickAvatar}>
                         <Image source={{ uri: this.state.user.avatar }} style={styles.avatar} />
                         <Ionicons
@@ -63,11 +69,11 @@ export default class RegisterScreen extends React.Component {
                
                 
                 
-                <Text style={styles.greeting}>{`ADD A Photo of your property here\n`}</Text>
+                
                 
                 
 
-                <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>
+                <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.navigate("screen")}>
                     
                     <Ionicons name="ios-arrow-round-back" size={40} color="#FFF"></Ionicons>
                 </TouchableOpacity>
@@ -78,28 +84,33 @@ export default class RegisterScreen extends React.Component {
                 </View>
                 
                 <View style={styles.form}>
+
                     
                         <Text style={styles.inputTitle}> Enter name of property </Text>
                         <TextInput
                             style={styles.input}
-                            placeholderTextColor = "#d48e15"
-                            placeholder = "For example Stunning Waterfront Villa"
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "E.g. ''Stunning Waterfront Villa'' "
                             //onChangeText={name => console.log(name)}
                             onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
                             value={this.state.user.name}
                         ></TextInput>
                     
-                        <Text style={styles.inputTitle}>Email Address (Your guests will use this to login)</Text>
+                        <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput
                             style={styles.input}
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "Your guests will use this to login"
                             autoCapitalize="none"
                             onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
                             value={this.state.user.email}
                         ></TextInput>
                    
-                        <Text style={styles.inputTitle}>Password (Your guests will use this to login)</Text>
+                        <Text style={styles.inputTitle}>Password</Text>
                         <TextInput
                             style={styles.input}
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "Your guests will use this to login"
                             secureTextEntry
                             autoCapitalize="none"
                             onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
@@ -109,6 +120,8 @@ export default class RegisterScreen extends React.Component {
                     <Text style={styles.inputTitle}>Access Code to the property</Text>
                         <TextInput
                             style={styles.input}
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "E.g. ''2510'' "
                             autoCapitalize="none"
                             onChangeText={accessCode => this.setState({ user: { ...this.state.user, accessCode } })}
                             value={this.state.user.accessCode}
@@ -118,6 +131,8 @@ export default class RegisterScreen extends React.Component {
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
+                            placeholderTextColor = "#556ca3"
+                            placeholder = "E.g. ''Type the code into the key pad'' "
                             multiline = {true}
                             onChangeText={accessInstructions => this.setState({ user: { ...this.state.user, accessInstructions } })}
                             value={this.state.user.accessInstructions}
@@ -146,25 +161,29 @@ const styles = StyleSheet.create({
         
     },
     greeting: {
-        marginTop: 40,
+        marginTop: 50,
         fontSize: 30,
         fontWeight: "500",
         textAlign: "center",
-        color: "#FFF",
-        marginBottom: -80
+        color: "#435480",
+        marginBottom: -80,
+        marginHorizontal: 20,
+        marginVertical: 50
     },
+    
     form: {
         marginBottom: 48,
-        marginHorizontal: 30
+        marginHorizontal: 30,
+        backgroundColor: "#d8e4fe70"
     },
     inputTitle: {
-        color: "#ffffff",
+        color: "#435480",
         fontSize: 17,
         textTransform: "uppercase",
         fontWeight: '700'
     },
     input: {
-        borderBottomColor: "#ffffff",
+        borderBottomColor: "#556ca3",
         borderBottomWidth: StyleSheet.hairlineWidth,
         height: 40,
         fontSize: 15,
@@ -172,7 +191,7 @@ const styles = StyleSheet.create({
        
     },
     button: {
-        backgroundColor: '#d48e15',
+        backgroundColor: '#2a3550',
         height: 70,
         marginHorizontal: 20,
         borderRadius: 35,
@@ -215,15 +234,15 @@ const styles = StyleSheet.create({
         height: 100,
         backgroundColor: "#E1E2E6",
         borderRadius: 50,
-        marginTop: 48,
+        marginTop: 100,
         justifyContent: "center",
         alignItems: "center",
         marginLeft: 160//needs changeing 
     },
     avatar: {
         position: "absolute",
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
         //borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
